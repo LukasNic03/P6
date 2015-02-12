@@ -1,0 +1,41 @@
+\input{preamble_ida12}
+
+\begin{document}
+
+\pagenumbering{roman}
+\include{formalities/frontpage}
+\include{formalities/titlepage}
+
+\pagenumbering{roman}
+\include{formalities/preface}
+
+\tableofcontents*
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{AAU}     %% Fixes the problem with page numbering on only the first page of a chapter.
+
+\include{chapters/Introduction}
+\include{chapters/Sprint1}
+\include{chapters/Sprint2}
+\include{chapters/Sprint3}
+\include{chapters/Sprint4}
+\include{chapters/Colap}
+\include{chapters/Conclusion}
+
+\begingroup
+	\raggedright
+	\bibliographystyle{plain}
+	\bibliography{bibtex/literaturP6}
+\endgroup
+
+\appendix
+\include{chapters/appendix}
+
+\end{document}
+
+%% Tvunget sideskift: \newpage\null\thispagestyle{empty}\newpage
+
+%% Brug \specialcell for at tillade line breaks i en table cell:
+
+
