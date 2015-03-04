@@ -1,1 +1,33 @@
 \section{Javadocs} \label{Sprint1_SecJavadocs}
+Javadocs is a plugin for Eclipse that automatically generates comments for coding blocks. In essense, it generates a comment stub automatically for a code block with stubs for all parameters.\\
+The comments can then be automatically gathered and put in order into a html file which partly acts as code documentation.\\
+\begin{figure}[H]
+	\begin{lstlisting}
+	/**
+	* Short one line description.                           (1)
+	* <p>
+	* Longer description. If there were any, it would be    [2]
+	* here.
+	* <p>
+	* And even more explanations to follow in consecutive
+	* paragraphs separated by HTML paragraph breaks.
+	*
+	* @param  variable Description text text text.          (3)
+	* @return Description text text text.
+	*/
+	public int methodName (...) {
+		// method body with a return statement
+	}
+	\end{lstlisting}
+	\caption{An example listing of how a javadoc should look is shown below. Note the double star at the beginning of the comment.}
+	\label{javadocsExample}
+\end{figure}
+
+The movivation for using a a javadocs-like system was to improve the overall comment approach through standardization and ease of use. An added bonus is that it can provide code documentation on the project as a whole, which is a challenge under normal circumstances.
+
+The status of javadocs at the start of the project was one of a partial implementation. It was used in some projects consistently, while in others, comments of all kinds were missing.
+
+Our responsibility was twofold, we had to check up on whether the previous groups had fully implemented javadocs and if they hadn't, then we should make sure it was implemented.\\
+The other responsibility followed the first. Once it is ensured that javadocs was properly installed, a guide to Javadocs were to be distributed to the rest of the project groups and placed on the wiki.
+
+In the same sprint, another group decided to replace javadocs with another plugin called Doxygen for code documentation purposes. Overall Doxygen serves the same purposes as javadocs did.
