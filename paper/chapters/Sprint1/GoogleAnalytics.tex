@@ -1,1 +1,12 @@
 \subsection{Google Analytics}
+Google Analytics is a service created by Google. The service generate statistics from traffic on web. Google Analytics main function is to track visitors and display advertising, to show how people are using the products. Mobile App Analytics is a branch of  Google Analytics, which focus on mobile. Mobile App Analytics has google play integration which allow the visitors/traffic sources tracking. this traffic can then be use to see who is installing the apps on which platform. Mobile App Analytics also provide some API’s for tracking events, Crash, Exception, and user patterns, to see how the users use the app.//
+
+Mobile App Analytics and Google play have a lot of the same functionality for tracking who installed what on which platform. But Mobile App Analytics has an advantages when it comes to crash/exception rapports, because API’s allow for reporting without the user has to interact and provide more detailed information on where the crash/exception happened in the code, therefore Mobile App Analytics were used to report crash/exceptions.//
+
+For crash reporting there were three task at hand. the first was to autoforward the crash reports for a submodule to the groups that worked on that submodule. The second and third task was to provide a guide on how to implement the API’s into the apps and provide a guide for the next years Google Analytics group on how to auto forward crash reports. //
+
+\subsubsection{Autoforward crash reports}
+Mobile App Analytics has an build in Email feature, which allow the user to auto email a crash report daily, weekly, monthly or quarterly. It is not that intuitive how to auto forward reports because the user has to first make an report that a able to filter to the time interval the user wants. Therefore an guide was made which can be found in the appendix.
+
+\subsubsection{Mobile App Analytics API}
+The Crash API for Mobile App Analytics has to be implemented if crashes are to be fund. The API works by making Tracker which can be used to report information to Mobile App Analytics, when an exception is caught. An great feature about the tracker is that it can be set to report uncaught exception.  
