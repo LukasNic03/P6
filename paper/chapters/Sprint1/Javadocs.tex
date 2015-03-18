@@ -1,5 +1,6 @@
-\section{Javadocs} \label{Sprint1_SecJavadocs}
-Javadocs is a plugin for Eclipse that automatically generates comments for coding blocks. In essense, it generates a comment stub automatically for a code block with stubs for all parameters.\\
+\section{Central Documentation} \label{Sprint1_SecJavadocs}
+As a part of the central documentation user story, we looked into how we could streamline documentation of the code for the project by using Javadocs to provide a clearer overall form of documentation.\\
+Javadocs is a plugin for Eclipse that automatically generates comments for coding blocks. In essence, it generates a comment stub automatically for a code block with a blank field space for all parameters.\\
 The comments can then be automatically gathered and put in order into a html file which partly acts as code documentation.\\
 \begin{figure}[H]
 	\begin{lstlisting}
@@ -16,18 +17,20 @@ The comments can then be automatically gathered and put in order into a html fil
 	* @return Description text text text.
 	*/
 	public int methodName (...) {
-		// method body with a return statement
+	// method body with a return statement
 	}
 	\end{lstlisting}
 	\caption{An example listing of how a javadoc should look is shown below. Note the double star at the beginning of the comment.}
 	\label{javadocsExample}
 \end{figure}
 
-The movivation for using a a javadocs-like system was to improve the overall comment approach through standardization and ease of use. An added bonus is that it can provide code documentation on the project as a whole, which is a challenge under normal circumstances.
+The motivation for using a a javadocs-like system was to improve the overall comment approach through standardization and ease of use. An added bonus is that it can provide code documentation on the project as a whole, which is a challenge under normal circumstances.
 
-The status of javadocs at the start of the project was one of a partial implementation. It was used in some projects consistently, while in others, comments of all kinds were missing.
+At the start of the project, Javadocs was partially fulfilling its role. It was used in some projects consistently, while in others, comments of any kind were missing.
 
-Our responsibility was twofold, we had to check up on whether the previous groups had fully implemented javadocs and if they hadn't, then we should make sure it was implemented.\\
-The other responsibility followed the first. Once it is ensured that javadocs was properly installed, a guide to Javadocs were to be distributed to the rest of the project groups and placed on the wiki.
+Our responsibility was twofold, we had to check up on whether javadocs were usable across the entire code base and if it weren’t, then we should make sure it got fully implemented.\\
+The other responsibility followed the first. Once it was ensured that javadocs was properly installed, a guide to Javadocs were to be distributed to the rest of the project groups and placed on the wiki.
+After some light testing, we could conclude that Javadocs were fully deployed and made a tutorial for the other users.
 
 In the same sprint, another group decided to replace javadocs with another plugin called Doxygen for code documentation purposes. Overall Doxygen serves the same purposes as javadocs did.
+Doxygen accepts the same syntax as Javadocs, so migration was very smooth.
