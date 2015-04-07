@@ -1,0 +1,148 @@
+\section{Dependencies}
+\label{Dependencies}
+\textit{In this section all the dependencies between apps and libraries are described, with the goal of finding out what is needed to get the apps to run and which dependencies has to be removed to be able to make apps standalone.}
+
+
+The first thing we did to find the dependencies was to make a list of all the apps and libraries that are used in the project. These apps can be found in table \ref{App_Lib_Table} below.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{\textwidth/2}p{\textwidth/2}}
+		\textbf{Apps “Repository name”(Name of app)} & \textbf{Libs} \\ \hline \noalign{\vskip 2mm}
+		launcher (Giraf) & giraf-component\\ \noalign{\vskip 2mm}
+		
+		zebra (Sekvens) & oasis-lib\\ \noalign{\vskip 2mm}
+		
+		wombat (Timer) & local-db \\ \noalign{\vskip 2mm}
+		
+		croc (Piktotegner) & pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		cat (Kategori-værktøjet) & sequence-viewer\\ \noalign{\vskip 2mm}
+		
+		cars (Stemmespillet) & category-lib\\ \noalign{\vskip 2mm}
+		
+		train (Kategori Spillet) & TimerLib\\ \noalign{\vskip 2mm}
+		
+		oasis-app (“administrations værktøj”) & DrawLib\\ \noalign{\vskip 2mm}
+		
+		tortoise (Livhistorier) & Ambilwarna \\ \noalign{\vskip 2mm}
+		
+		ugeplan & barcodescanner\\ \noalign{\vskip 2mm}
+		
+		piktosearch (Tal for mig) & \\ \noalign{\vskip 2mm}
+		
+		parrot (Piktooplæser) & \\
+		
+	\end{tabularx}
+	\label{App_Lib_Table}
+	\caption{List of apps and libraries}
+\end{table}
+
+\subsection{Libraries apps are dependent on}
+After making the list of all the apps and libraries we found the dependencies for all the apps by opening the project for them and then looking at what libraries was included in the build gradle files.
+
+From the information we made a list of all the libraries the apps was dependent on. This list can be seen below.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{0.80\textwidth}p{0.2\textwidth}}
+		
+		launcher & → giraf-component, oasis-lib, local-db, barcodescanner\\ \noalign{\vskip 2mm}
+		
+		zebra & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		wombat & → giraf-component, oasis-lib, local-db, pictogram-lib, DrawLib, TimerLib, wheel \\ \noalign{\vskip 2mm}
+		
+		croc & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		cat & → giraf-component, oasis-lib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\ \noalign{\vskip 2mm}
+		
+		cars & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		
+		train & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		oasis-app & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		
+		tortoise & → giraf-component, oasis-lib, local-db, pictogram-lib \\ \noalign{\vskip 2mm}
+		
+		$*$ugeplan & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		piktosearch & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		
+		parrot & → giraf-component, oasis-lib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\
+		
+	\end{tabularx}
+	\label{Table_dependencies}
+	\caption{List of library dependencies for apps}
+\end{table}
+
+$*$ Opens through tortoise.
+
+As can be seen in the list of dependencies, all the apps were dependent on ‘giraf-component’, ‘oasis-lib’, and ‘local-db’. In addition to that there is a lot of the apps that are dependent on ‘pictogram-lib’.
+
+To get a better overview of the dependencies we made a graph figure \ref{AppLibependencies} below. Because there is a lot of dependencies between the apps and libraries, we decided to exclude ‘giraf-component’, ‘oasis-lib’, and ‘local-db’ from the graph. This meant that the graph was a lot easier to read, and because all apps where dependent on those apps, we could just add a short note about the dependency.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8 \textwidth]{pictures/AppLibependencies.png}
+	\caption{Graph of library dependencies for apps}
+	\label{AppLibependencies}
+\end{figure}
+
+\subsection{Cross library dependency}
+After having made all the library dependencies for the apps we did the same procedure for the libraries to find out which libraries where dependent on which library. As with app we started by looking at the build gradle files for the libraries, and then made a list of the dependencies, which can be seen in the list below.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{0.75\textwidth}p{0.25\textwidth}}
+		
+		giraf-component & → oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		
+		oasis-lib & → local-db\\ \noalign{\vskip 2mm}
+		
+		pictogram-lib & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		
+		sequence-viewer & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		local-db & → metadata\\ \noalign{\vskip 2mm}
+		
+		category-lib  & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		
+		Drawlib & → \\ \noalign{\vskip 2mm}
+		
+		TimerLib & → \\ \noalign{\vskip 2mm}
+		
+		Ambilwarna & → \\ \noalign{\vskip 2mm}
+		
+		barcodescanner & → \\ \noalign{\vskip 2mm}
+		
+		wheel & → \\ \noalign{\vskip 2mm}
+		
+		metadata & → \\
+		
+	\end{tabularx}
+	\label{Table_dependencies}
+	\caption{List of cross library dependencies}
+\end{table}
+
+As with apps/library dependencies we also made a graph for cross dependency between the libraries shown in figure \ref{LibLibdependencies} below. In this graph we decided to show all dependencies since there was no dependency that was the same for all libraries and because the number of dependencies was low enough, to be able to show it all without having to many lines crossing each other to be able to read the graph.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8 \textwidth]{pictures/LibLibdependencies.png}
+	\caption{Graph of cross library dependencies}
+	\label{LibLibdependencies}
+\end{figure}
+
+\subsection{Cross App dependencies}
+As the last step in finding the different dependencies we found the dependencies between the different apps. We did this in two ways, skimming through the code for any calls to another app, and by trying to run the apps on a tablet and testing if any of the apps  stopped working if another app was uninstalled. From the dependencies we made a graph which is shown below in figure \ref{AppAppdependencies}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8 \textwidth]{pictures/LibLibdependencies.png}
+	\caption{Graph of cross app dependencies}
+	\label{AppAppdependencies}
+\end{figure}
