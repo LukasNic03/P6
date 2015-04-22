@@ -1,0 +1,51 @@
+\subsection{AAR files}\label{Sprint2_aarfiles}
+%.aar files
+%What is an .aar file ?
+%Why did we implement it ?
+%How did we implement it ?
+%What benefits are there from using aar files ?
+%What effect does it have for other groups in the future ?
+%Should we make an wiki guide ?
+%how much build time is saved ?
+%what work did we do with other groups ?
+
+When the 2nd sprint started, the libraries used as dependencies by each app was copied into the project building the app. This resulted in many files and folders being present in several different app projects. As seen in \ref{Sprint2_SecDependencies} some libraries are used by most apps. Given that the libraries contain upwards of 4000 files this presents a potential problem if for example some files are not copied correctly. To ensure that the libraries are the same across all apps, we used aar files that are compressed resource files not unlike zip files.
+The android version of Java Archive files, aar is more specifically a binary distribution of an Android Library Project, and it is a format used in Android development. \ref{http://tools.android.com/tech-docs/new-build-system/aar-format }
+‘.aar’ files contains the following:
+
+\begin{itemize}
+\item /AndroidManifest.xml (mandatory)
+\item /classes.jar (mandatory)
+\item /res/ (mandatory)
+\item /R.txt (mandatory)
+\item /assets/ (optional)
+\item /libs/*.jar (optional)
+\item /jni/<abi>/*.so (optional)
+\item /proguard.txt (optional)
+\item /lint.jar (optional)
+\end{itemize}
+
+\subsection{Motivation}
+By using aar files the number of files being shared could be reduced to just the one aar file, and with proper version naming, this would make it simpler to include the right library. The previous implementation also called each dependency recursively, which would then call its own dependencies, resulting in multiple calls to build the same dependency.
+
+\subsection{Implemention}
+To store and access these aar files, some of the other groups set up a maven repository. For these groups, we provided some consultation on the implementation. This way we avoid duplicates by storing the dependencies away from the application repositories, rather than each application storing it internally.
+
+The following listing show how the implementation looks in the code for the launcher application:
+\begin{lstlisting}
+dependencies {
+compile ('com.android.support:support-v4:+')
+compile ('fr.avianey.com.viewpagerindicator:library:2.4.1') {
+exclude module:'support-v4'
+}
+compile fileTree(include: '*.jar', dir: 'libs')
+compile project(':barcodescanner')
+compile(group: 'dk.aau.cs.giraf', name: 'girafComponent', version: '1.2', ext: 'aar')
+compile(group: 'dk.aau.cs.giraf', name: 'oasisLib', version: '1.0', ext: 'aar')
+compile(group: 'dk.aau.cs.giraf', name: 'localDb', version: '1.0', ext: 'aar')
+compile(group: 'dk.aau.cs.giraf', name: 'meta-database', version: '1.0')
+compile files('libs/libGoogleAnalyticsServices.jar')
+}
+\end{lstlisting}
+
+The code compiles the dependencies found in section \ref{Sprint2_SecDependencies} from the maven repository. The compile call finds the aar file specified by four parameters. 'dk.aau.cs.giraf' is the path inside the maven repository. The name specifies the specific file. The version is the current version of the application being compiled. ext says the extension of the file called is aar.
