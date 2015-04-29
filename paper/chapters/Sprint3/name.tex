@@ -1,11 +1,17 @@
-\section{Package names} \label{Sprint3_name}
-\textit{This section .}
+\section{Renaming of Package-names} \label{Sprint3_name}
+\textit{One of our tasks for the 3rd sprint was the internal renaming of most apps and libraries. In this section we will cover the renaming process including the consequences of the method used.}
 
+\subsection{Motivation}
+As there was little to no consistency in what the apps are called internally, that is on Git, Jenkins, and the package-names on Google Play, it was highly requested that some consistent names were made. A package-name is a text-string used by Google Play to uniquely identify the app. In the Giraf-project the package-names are on the form: dk.aau.cs.giraf.App, where ‘App’ is replaced by the internal name for the app in question.
+While in the process of renaming, it was also suggested that the apps got names that actually tell something about what they do, ie. not many would know what the app ‘croc’ does but when it is named ‘pictocreator’ it makes some sense. Because of the descriptive names and the consistency in naming, it would become much easier for new developers to understand what the different apps are.
+
+\subsection{Initial decisions}
+Before we started renaming anything, we took a look at the old names, seen in Table \ref{Sprint3_package_names_apps}. The names were a mixture of animal references and shorthand notations for the parts of the apps content. The animal names were originally created several years ago and while they might have made sense back then, it was decided to find new names for these. Additionally some of the shorthand notations were changed as well, to become more descriptive.
 
 \begin{table}
 	\centering
 	\begin{tabular}{ll}
-		\textbf{Old package names} & \textbf{New package names}\\ \hline \noalign{\vskip 2mm}
+		\textbf{Old app package-names} & \textbf{New app package-names}\\ \hline \noalign{\vskip 2mm}
 		launcher & launcher\\ \hline
 		train & categorygame\\ \hline
 		pictoadmin & categorymanager\\ \hline
@@ -18,8 +24,32 @@
 		cars & voicegame\\ \hline
 		wombat & timer\\ \hline
 		schedulestarter & weekschedule\\ \hline
-		
 	\end{tabular}
-	\caption{Old and New package names}
+	\caption{Old and new package-names for the apps.}
 	\label{Sprint3_package_names_apps}
 \end{table}
+
+New names were suggested by us and after some discussion with members of the GUI-subproject, we settled on the names seen in the second column of Table \ref{Sprint3_package_names_apps}. Everyone involved in the decisionmaking on the new names, feel that the new naming makes more sense in the way that they actually say something about the functionalities of the app.
+
+\subsection{Renaming process}
+The most important part of the project to have renamed, was the package-names used by Google Play, as due to Jenkins automatically uploading new versions of the app to Google Play, Jenkins would fail if the package-name was different from the one used on Google Play. Because package-names are unique Google have decided that they should not be changeable after uploading the app, therefore we were subsequently forced to bypass this system by uploading new apps, with the same content, to replace the apps, were we changed the package-name. Therefore we changed the names of the ‘old’ apps to be the name followed by ‘retired’ indicating that the apps would eventually be taken down. This was done to ensure that the other groups could continue working on the apps without being affected by the name change before they were ready to transition to the new name.
+
+During this process we encountered a problem with one app not being uploadable. This was caused by some of the libraries having part of the same package-name, more specifically they were called ‘dk.aau.cs.giraf.oasis.LibName’, while one of the apps had previously been called ‘dk.aau.cs.giraf.oasis’. Due to this problem we decided to rename the package-names of the three libraries causing the problem, in part also to get rid of the ‘oasis’ part of the name, as it did not tell anything about what the library was used for. Due to some unforeseen events in another group working on one of the libraries in question, we had to wait a few days before the renaming could be continued and finalized. The new and old package-names for the libraries can be seen on Table \ref{Sprint3_package_names_libraries}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{ll}
+		\textbf{Old library package-names} & \textbf{New library package-names}\\ \hline \noalign{\vskip 2mm}
+		oasis.metadata & dbmetadata\\ \hline
+		oasis.localdb & localdb\\ \hline
+		oasis.lib & dblib\\ \hline
+	\end{tabular}
+	\caption{Old and new package-names for the libraries.}
+	\label{Sprint3_package_names_libraries}
+\end{table}
+
+While uploading the ‘new’ apps we found that the descriptions of several apps could use an update, and we will suggest this as a user story for the next sprint.
+
+\subsection{Consequences}
+The way the renaming was done is not completely without consequences. As we had to upload essentially new apps, it was not possible to transfer the statistics from the old apps to the new ones. In addition all current users will have to uninstall their current versions of the apps and then install the new releases in order to get updates on the apps in the future. Both of these consequences, while potentially very bad if the project had been more widespread, is not actually too bad. This is because the number of external users are low and we have access to direct contact with them, and the data and statistics gathered from the usage of the apps is not that useful in practise due to the rapid development on most apps. Therefore we see the renaming as an overall success.
+
