@@ -30,9 +30,21 @@ By using a pre-built library, each application only has to build itself with the
 \end{figure}
 
 Before implementing this solution, libraries could occur a number of times equal to 1, for the app, plus the number of libraries already present. I.e ‘Sequence’ adds the library ‘sequence-viewer’, then ‘pictogram-lib’, then ‘giraf-component’, then ‘oasis-lib’, and then lastly ‘localdb’ is added.  Figure x.x is the visual representation of this. As it can be seen the number of builds follow an arithmetic series on the form:
-1 lib_{1} + 2 lib_{2} + 4 lib_{3} + 8 lib_{4} + 16 lib_{5}
+
+
+\begin{center}
+	$1 lib_{1} + 2 lib_{2} + 4 lib_{3} + 8 lib_{4} + 16 lib_{5}$	
+\end{center}
+
+
 This can be summarized to:
-\displaystyle\sum_{i=0}^{i<n} 2^n
+
+\begin{center}
+    $\displaystyle\sum_{i=0}^{i<n} 2^n$
+\end{center}
+
+
+
 Where n is the number of different libraries added to the app.
 
 This is a worst case scenario but as it can be seen from Section “ref til dependencies” most apps were in a worst case state before the change.
@@ -42,8 +54,9 @@ As it can be seen from Table x.x, our solution reduced the number of libraries b
 
 \begin{table}[H]
 	\centering
-	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{\textwidth/2}p{\textwidth/2}}
-		\hline \textbf{Formula}: & \displaystyle\sum_{i=0}^{i<n} 2^n & n \\ \noalign{\vskip 2mm}
+	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{\textwidth/3}p{\textwidth/3}}
+		 & \textbf{Before} & \textbf{After} \\ \noalign{\vskip 2mm}
+		\hline \textbf{Formula}: & $\displaystyle\sum_{i=0}^{i<n} 2^n$ & n \\ \noalign{\vskip 2mm}
 		\hline \textbf{Launcher}: & 8 & 4 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Sequence}: & 31 & 5 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Timer}: & 18 & 7 \\ \noalign{\vskip 2mm}
