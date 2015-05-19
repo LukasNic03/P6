@@ -45,6 +45,12 @@ As a developer I would like to have Jenkins automatically check whether I follow
 \item \textbf{Safely disconnecting tablets from testing pool (-)}\\
 As a developer I would like to be able to disconnect my tablet from the testing pool safely, without breaking a build on Jenkins.
 
+\subsection{Build Release}
+These user stories should be related to the build release of \giraf.
+
+\item \textbf{Make a package for download on Google Play}\\
+As a customer I would like to have a package available on Google Play that would allow me to download just one thing that would install all needed parts for the Giraf-project, so that i don’t have to download them all individually.
+
 \subsection{Documentation}
 These user stories should be related to the documentation of \giraf.
 
@@ -74,11 +80,150 @@ As semester coordinator I would like to know which future technologies could be 
 \section{Release Backlog - Sprint 1}
 This section includes all user stories from the release from Sprint 1.
 
+\begin{enumerate}
+
+\item \textbf{Setting up server}\\
+As a developer
+
+\item \textbf{Setting up Git}\\
+As a developer I would like to have git up and running, so that I can access and share code for the apps in the project.
+
+\item \textbf{Setting up server}\\
+As a developer I would like for the servers to be running, so that I can use all the tools running on them, and so that I can access the files located on the servers.
+
+\item \textbf{Google Analytics Setup}\\
+As a developer I would like to have Google Analytics setup in the apps so that I can get get crash reports for the apps.
+
+\item \textbf{Setup of Google Play}\\
+As a developer I would like Google Play to be used in the project, so that the apps can be released on the app store.
+
+\item \textbf{Update to Android 1.0.x}\\
+As a developer i would like to have the version of Android studio used updated to version 1.0.x, so that I can use the new functionalities in that version.
+
+\item \textbf{Central Documentation}\\
+As a developer I would like to have a place, where all the code in the project is documented, so that I do not have to look several different places or source code files to find the one function I need.
+
+\item \textbf{Continuous build and integration}\\
+As a developer I would like to have an automated build-function running on Jenkins, so that I know the build I upload is attempted to be built and tested.
+
+\item \textbf{Wiki entry on process}\\
+As a developer I would like to have a specification on how the project’s overall process is structured, so that I know what my responsibility in the project is and how I should work as a part of the greater unit.
+
+\end{enumerate}
+
 \section{Release Backlog - Sprint 2}
 This section includes all user stories from the release from Sprint 2.
+
+\begin{enumerate}
+
+\item \textbf{Binaries instead of submodules}\\
+As a developer I would like to use binary files in the project so that i do not have to use submodules on the git repositories.
+
+\item \textbf{Snapshots of database/Backups}\\
+As a developer
+
+\item \textbf{SMTP setup}\\
+As a developer I would like to have access to a central mailing system that can automatically notify me of changes, so that I can easily and without effort on my part stay up to date.
+
+\item \textbf{Logging}\\
+As a developer
+
+\item \textbf{Gitlab for the server/GOG}\\
+As a developer I would like to have access to a server-side Git-interface, so that it would be easier to use Git.
+
+\item \textbf{Faster build and test}\\
+As a developer I would like faster builds and tests on the jenkins, so that I do not have to wait as long for applications to be built and tested.
+
+\item \textbf{Code coverage}\\
+As a developer I would like to have code coverage on jenkins so that i can how much of the code is tested by Jenkins.
+
+\item \textbf{Test case installation}\\
+As a developer I would like to have Jenkins attempt to install the new builds, so that I can avoid conflicts in installation situations.
+
+\item \textbf{Release new APK for Sprint 1}\\
+As a customer I would like to have access to the newest stable version of the program, so that I can enjoy the new features I have had presented.
+
+\item \textbf{Auto Upload Beta and Alpha release}\\
+As a developer I would like to have a Alpha and a Beta release of the different apps, so that I can test the app from the store without releasing an unstable version to the customer.
+
+\item \textbf{Dependency}\\
+As a developer I would like to know which apps and libraries that are dependent on each other, so that I know which libraries to include in my app when coding.
 
 \section{Release Backlog - Sprint 3}
 This section includes all user stories from the release from Sprint 3.
 
+\begin{enumerate}
+
+\item \textbf{Logging}\\
+As a developer I would like to have logging for the database so that the server follows the requirement set by the Government.
+
+\item \textbf{Symmetric DS}\\
+As a developer I would like for the server to support synchronization with the database.
+
+\item \textbf{Snapshots of database/Backups}\\
+As a developer I would like to have snapshots of the database so in the event of server breakdown, less data is lost.
+
+\item \textbf{Monkey test}\\
+As a developer I want to have monkeys tests, so that the reliability of the apps can be tested.
+
+\item \textbf{UI test on Jenkins}\\
+As a developer I would like to have UI test on jenkins so that the UI can be tested for an app when it is pushed on the master branch.
+
+\item \textbf{Share the knowledge from Guides}\\
+As a developer I would like for all groups to know all the guides they have access to.
+
+\item \textbf{Add a guide on how to do UI test}\\
+As a developer I would like to have a guide on how to do UI tests.
+
+\item \textbf{Make guidelines for Continuous Integration}\\
+As a developer 
+
+\item \textbf{Specify the Scrum process used}\\
+As a developer I would like to have the Scrum process used by the project specified to better integrate groups into the process.
+
+\end{enumerate}
+
 \section{Release Backlog - Sprint 4}
 This section includes all user stories from the release from Sprint 4.
+
+\begin{enumerate}
+
+\item \textbf{Ensure App Name Consistency}\\
+As a developer I would like all the references to an app and library to use the same name so that it is easier to follow and understand which apps are referenced when reading a name. All names on git, jenkins, and google play should be consistent.
+
+\item \textbf{Make Pictosearch a Library}\\
+As a customer I would like PictoSearch to be a Library so that i don’t have to download it separately from other apps.
+
+\item \textbf{Reset the dummy-database every night}\\
+As a developer I would like the dumme-database to reset every night to clean up any mess that might have been made during the day so that these things do not cause any trouble in the future.
+
+\item \textbf{Prioritization on Jenkins}\\
+As a developer I want libraries to have higher priority that other jobs in the build scheduling on Jenkins so that libraries are not bottlenecked when several people are reliant on them.\\
+Jobs must not be starved.\\
+Libraries must be prioritized higher than other job types.
+
+\item \textbf{Ensure that every unit-test, monkey-test, ui-test, and maybe integration-tests runs up against the test database}\\
+As a developer, as a future developer, and as a customer I would like the database to not be wiped every time a test is run because I would then lose valuable data.\\
+
+\item \textbf{Monkey tests on debyg versions of apps}\\
+As a developer I want tests to run on the debug version of apps so that they can be tested on a test database.\\
+Monkey tests must run on debug APKs.
+
+\item \textbf{Monkey testing screen-capture from last failure}\\
+As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened.
+
+\item \textbf{Decrease job build times on Jenkins (Technical work)}\\
+
+\item \textbf{Easy way to download and install all apps}\\
+As a developer I want an easy way to download and install all apps so that it is easy to test the apps combined, and easy to show the external customers.\\
+Users must not install additional software onto their computers.\\
+Old versions of apps must be updated.\\
+Users should be able to merely run a program that then automatically downloads and installs all apps on a device.
+
+\item \textbf{Preparations for next semester}
+As a developer i would like to have guides provided that specify how to use the development tools used in the project, so that is don’t have to use as much time researching how to use them before i can start working on the project.
+
+\item \textbf{One combined place/report with all relevant information}\\
+As a future developer I would like for all relevant information to be available in one place whether this is a report or some other place I have access to, in order to have an easier time getting in to the project. All relevant information is on giraf.cs.aau.dk.
+
+\end{enumerate}
