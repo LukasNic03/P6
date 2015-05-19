@@ -15,11 +15,11 @@ When the 2nd sprint started, the apps and libraries recursively downloaded and b
 
 \subsection{Android archive}
 As an solution, we want each libraries to build a library file, which can be used in multiple places. This reduces the build time of all the projects since the apps or libraries just need to download the prebuilt library files.
-This is where Android archive (AAR) files are introduced. AAR files are binary distributions of an Android Library Project, which works like a standard Java jar library. The difference between a jar library and an aar library is that the aar library includes resources, which allows for visual components like an login screen, which can then be used across multiple applications. 
+This is where Android archive (AAR) files are introduced. AAR files are binary distributions of an Android Library Project, which works like a standard Java jar library. The difference between a jar library and an aar library is that the aar library includes resources, including images, which allows for visual components like an login screen, which can then be used across multiple applications. 
 The distribution of libraries (aar) and apps will be explained in Section x.x (reference to collaboration chapter), since more groups were involved in making this happen.
 
 \subsection{Solution}
-By using a pre-built library, each application only has to build itself with the libraries include in the application as shown in the the graph in Figure \ref{newbuild}. It is important to know that all libraries included in other libraries have to be included by the app. It means that even if the ‘Sequence’ app didn't use ‘oasis-lib’ directly, it would still have to include it because ‘giraf-component’ is using it.
+By using a pre-built library, each application only has to build itself with the libraries include in the application as shown in the the graph in Figure x.x. It is important to know that all libraries included in other libraries have to be included by the app. It means that even if the ‘Sequence’ app didn't use ‘oasis-lib’ directly, it would still have to include it because ‘giraf-component’ is using it. This can be accomplished by using any tree traversal algorithm that returns all unique libraries in the tree from Figure x.x.
 
 \begin{figure}[H]
 	\centering
@@ -28,18 +28,18 @@ By using a pre-built library, each application only has to build itself with the
 	\label{newbuild}
 \end{figure}
 
-Before implementing this solution, libraries could occur a number of times equal to 1, for the app, plus the number of libraries already present. I.e ‘Sequence’ adds the library ‘sequence-viewer’, then ‘pictogram-lib’, then ‘giraf-component’, then ‘oasis-lib’, and then lastly ‘localdb’ is added.  Figure x.x is the visual representation of this. As it can be seen the number of builds follow an arithmetic series on the form:
+Before implementing this solution, libraries could be included once for every other library previously included in the app, and once for the app itself. This means that if i.e ‘Sequence’ adds the library ‘sequence-viewer’, then ‘pictogram-lib’, then ‘giraf-component’, then ‘oasis-lib’, and then lastly ‘local-db’; then ‘sequence-viewer’ would be added once, ‘pictogram-lib’ twice, ‘giraf-component’ four times, ‘oasis-lib’ eight times, and ‘local-db’ 16 times. This follows the arithmetic series:
 
 
 \begin{center}
-	$1 lib_{1} + 2 lib_{2} + 4 lib_{3} + 8 lib_{4} + 16 lib_{5}$	
+	$1 lib_{1} + 2 lib_{2} + 4 lib_{3} + 8 lib_{4} + 16 lib_{5} ... 2^{n-1} lib_{n} $	
 \end{center}
 
 
 This can be summarized to:
 
 \begin{center}
-    $\displaystyle\sum_{i=0}^{i<n} 2^n$
+    $\displaystyle\sum_{i=0}^{i<n} 2^i$
 \end{center}
 
 
@@ -55,16 +55,15 @@ As it can be seen from Table x.x, our solution reduced the number of libraries b
 	\centering
 	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{\textwidth/3}p{\textwidth/3}}
 		 & \textbf{Before} & \textbf{After} \\ \noalign{\vskip 2mm}
-		\hline \textbf{Formula}: & $\displaystyle\sum_{i=0}^{i<n} 2^n$ & n \\ \noalign{\vskip 2mm}
-		\hline \textbf{Launcher}: & 8 & 4 \\ \noalign{\vskip 2mm}
+		\hline \textbf{Launcher}: & 8 (barcodescanner is only build once) & 4 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Sequence}: & 31 & 5 \\ \noalign{\vskip 2mm}
-		\hline \textbf{Timer}: & 18 & 7 \\ \noalign{\vskip 2mm}
+		\hline \textbf{Timer}: & 18 (DrawLib, TimerLib, and wheel are only build once each) & 7 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Pictocreator}: & 15 & 4 \\ \noalign{\vskip 2mm}
-		\hline \textbf{Categorymanager}: & 17 & 6 \\ \noalign{\vskip 2mm}
+		\hline \textbf{Categorymanager}: & 17 (catagory-lib and Ambilwarna are only build once each) & 6 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Pictosearch}: & 7 & 3 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Voicegame}: & 7 & 3 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Categorygame}: & 15 & 4 \\ \noalign{\vskip 2mm}
-		\hline \textbf{Pictoreader}: & 17 & 6 \\ \noalign{\vskip 2mm}
+		\hline \textbf{Pictoreader}: & 17 17 (catagory-lib and Ambilwarna are only build once each) & 6 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Lifestories}: & 31 & 5 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Weekschedule}: & 15 & 4 \\ \noalign{\vskip 2mm}
 		\hline \textbf{Administration}: & 7 & 3 \\ \noalign{\vskip 2mm}
