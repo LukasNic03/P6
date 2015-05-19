@@ -1,229 +1,854 @@
-\chapter{Backlogs} \label{app:product-backlog-s1}
+\input{paper/preamble_ida12.tex}
+
+\begin{document}
+
+\chapter{Backlogs} \label{app:product-backlog}
 This is a full list of GUI related user stories, including both finished user stories (Release Backlogs) and user stories we have not worked on in this semester (Product Backlog). 
 
+A user story is released when it have a working version. In the beginning of the project there was implemented a lot of the features from the user stories, but many of them was not able to run.
+
+Some times new user stories is made later on which look like the old, if it is decided they need to be worked on again.
+
 Each user story consist of a title, a priority from 1-5 where 1 is most important, and the story. If the priority there is a hyphen, ´´-''.
-Furthermore the user stories is categorised.
+Furthermore the user stories is categorized.
 
 The format of the user stories is: \\
 ``As a (end user), I want to (some goal) so that (some reason)'' \citep{agile-topics}.
 
 In the user stories there is used different kinds of users:
 \begin{description}
-\item [Developer] People who work on the development of the \giraf, both current and future developers.
-\item [Citizen] Children, adults, and elders with an autism spectrum disorder or other developmental disabilities.
-\item [Guardian] Legal guardians (e.g. parents) or institutional guardians (e.g. pedagogues).
-\item [User] All kind of users of \giraf.
+	\item [Developer] People who work on the development of the GIRAF, both current and future developers.
+	\item [Citizen] Children, adults, and elders with an autism spectrum disorder or other developmental disabilities.
+	\item [Guardian] Legal guardians (e.g. parents) or institutional guardians (e.g. pedagogues).
+	\item [User] All kind of users of GIRAF.
 \end{description}
 
-\section{Product Backlog}
-This section includes all user stories that are not finished.
-\subsection{Structural Changes}
-These user stories should have an impact on the structure of the work environment.
+\section{Product Backlog} \fxnote{Gennemgå i tilføj GUI developer stories} \fxnote{Opdatere enumurater start numre}
+This section includes all user stories there is not finished.
+\subsection{General} \fxnote{Gennemgå alle de generelle på et møde med GUI grupper, så vi kan vurdere om de er færdige.}
+These user stories should have an impact on all the applications.
 
 \begin{enumerate}
-\item \textbf{Replace Redmine with another tool (4)}\\
-As a developer I would want to use another tool instead of Redmine so that i could get a more reliable organization tool as the handling of user stories on Redmine is clumsy and is therefore not used by the majority.
+	\item \textbf{Unexpected crashes (1)}\\
+	As a user I want the system to work flawlessly and no unexpected crashes occur, as it is very frustrating for the citizens if the systems does not work as expected. 
+	
+	\item \textbf{Access (4)} \\
+	As a guardian i want closing an application for a citizen to be protected with a password, so they cannot make any changes or use other application than i have aloud. If closing the application is not approved, then the citizen can return to the application, he was currently executing.
+	
+	\item \textbf{Pictogram sound indication (2)}\\
+	As a user of the system, all applications should show, and allow me to play, a pictograms associated sound, if there exist a sound for the pictogram, as the citizens can learn the sound of a pictogram without being able to read. 
+	
+	\item \textbf{Change color scheme (4)}\\
+	As a guardian I want to adapt the color scheme for a citizen, as this makes it easier to see who is logged into the tablet. 
+	
+	\item \textbf{Consistency (1)}\\
+	As a user i want that the design is consistent, as this is easier for all applications to learn the icons and design.  
+	
+	\item \textbf{Dual languages (1)}\\
+	As a developer i want to have the system in danish for the customers and users, and in english for my supervisors. 
+	
+	\item \textbf{Icon overview (-)} \\
+	As a new user i want an overview of all icons and their meanings, not necessary as a part of GIRAF, so i can easily learn the meaning of each.
+	
+	\item \textbf{Help (2)}\\
+	As a guardian i want to have a help function, i can use if i do not know what to do.
+	
+	\item \textbf{Undo (1)}\\
+	As a user i want undo/redo in all relevant applications, so i can easily recover from errors.
+	
+	\item \textbf{Change log-in work flow to be compatible with SymmetricDS log-in process (-)}\\
+	As a user, I would like the log-in process to be informative and help me log-in when synchronisation is enabled, so I do not have to wait for data to download before I can log-in.
+	
+	\item \textbf{Update all relevant info on sync in all apps (-)}\\
+	As a user, I would like all apps to update their views when synchronisation completes, so I do not have to restart the apps to obtain any changes to my data.
+	
+	\item \textbf{Google Analytics (3)}\\
+	As a developer i want all modules of GIRAF~ to report crashes, so potential bugs can be fixed. By implementing Google analytics in the modules, crash reports can be collected.
+	
+	\item \textbf{Commented code (-)}\\
+	As a developer I want the code to be well commented and documented, such that I can easily understand it and develop on it.
+	
+	\item \textbf{Unused code (2)}\\
+	As a developer I want unused code to be removed, as it is unnecessary and confusing.
+	
+	\item \textbf{Generalising (5)}\\
+	As a developer I want the code re-factored, such that similar methods are generalised across applications.
+\end{enumerate}
+
+\subsection{Launcher}
+The launcher is the home screen of the GIRAF~ system. From here, the GIRAF- and Android applications can be placed, and easily opened. These user stories are specific for the Launcher.
+
+\begin{enumerate}
+	\setcounter{enumi}{15} % Give number of the previous number
+	\item \textbf{Set passwords (4)} \\
+	As a guardian I want to set the password to different types (pin-code, swipe a pattern or QR code), and be able to turn these on and off for citizens, as citizens above 18 years old should not be restricted access, whereas citizens younger than 18 should be restricted. 
+	
+	\item \textbf{Error message (-)}\\
+	As a user i want an error message if there is no Internet, and the GIRAF~ is trying to download data. When there is a Internet connecting, i should start download data. This ensures i do not have to wait for download, when it is not working.
+\end{enumerate}
+
+\subsection{Profiles}
+These user stories describes how the profiles are used. 
+
+\begin{enumerate}
+	\setcounter{enumi}{17} % Give number of the previous number
+	\item \textbf{Profile breakdown (2) }\\
+	As a guardian I want to find the group i am working with, as i then can find the citizen I am helping, with a few clicks. If no group is chosen, then the citizens should be listed alphabetically. 
+	
+	\item \textbf{Settings for multiple citizens (2)}\\
+	As a guardian I want to be able to save settings for one or multiple citizens, and be able to copy these settings from a citizen to another, making it easier to make settings. The settings should include game settings, week schedules, sequences, pictograms and categories.
+\end{enumerate}
+
+\subsection{Pictosearch}
+Pictosearch is the application used to find pictograms. This is used whenever the possibility of searching exist. Pictosearch can provide a list of pictograms and categories. These user stories relevant for the searching.
+
+\begin{enumerate}
+	\setcounter{enumi}{19} % Give number of the previous number
+	\item \textbf{Searching strategies (1)}\\
+	As a developer, i want to improve the searching functionality by implementing a more effective searching strategy, so I can see the search results quicker. The searching strategy should be well documented.
+	
+	\item \textbf{Sorting strategies (4)}\\
+	As a developer, i want to improve the sorting functionality by implementing a more effective sorting strategy, so the search results will be sorted quicker. The sorting strategy should be well documented.
+	
+	\item \textbf{Access to private pictograms (-)}\\
+	As a guardian, I want to be able to find the private pictograms associated with the current citizen, so I can use them for things like sequences specific to that citizen.
+\end{enumerate}
+
+\subsection{Week Schedule}
+Week Schedule is used to show the citizens the plan for their week or day. These user stories is covering the features wanted in Week Schedule.
+
+\begin{enumerate}
+	\setcounter{enumi}{22} % Give number of the previous number
+	\item \textbf{Refer to the sequence application (3)}\\
+	As a citizen, when I click on an activity, it should lead to a saved sequence, so I can get a visual description of how to do the activity. I want that it is visible whether or not the activity has this feature.
+	
+	\item \textbf{Guardian for the day (3) }\\
+	As a citizen I want to see which guardian is attached to me today, as I then can see who I should contact when I am done with an activity. 
+	
+	\item \textbf{Copy week schedule (1) }\\
+	As a guardian I want to copy entire weeks and single days, from one citizen to another, because many of the weeks and dags has some similarities, and this would ease the work of creating schedules. 
+\end{enumerate}
+
+\subsection{Sequence}
+Sequence is used to create a series of pictograms, that is used to describe how an activity should be done. The citizens can then see these sequences when performing the activity. These user stories is for features in sequence.
+
+\begin{enumerate}
+	\setcounter{enumi}{25} % Give number of the previous number
+	\item \textbf{Email sequences (2)}\\
+	As a guardian I want to email sequences, so I can print them, and use them without GIRAF.
+	
+	\item \textbf{Copy sequences (2)}\\
+	As a guardian I want to copy sequences between citizens, so I easy can use the same sequences for multiple citizens.
+	
+	\item \textbf{Save edited sequence (3)}\\
+	As a guardian I want to choose if a change in a sequence should result in the existing sequence being overwritten or if a new sequence should be saved, as this could also be the case. 
+	
+	\item \textbf{Choice pictogram (4)} \\
+	As a guardian I want to be able to choose the pictogram illustrating a choice in a sequence myself, so it fits a particular choice, as it makes it easier for the citizen to understand the different choices.
+	
+	\item \textbf{Video sequence (5)} \\
+	As a citizen I want to see a video, that shows me how to execute a sequence, as this can better explain me to complete the sequence.
+	
+	\item \textbf{Possibility for citizens to create sequences (4)}\\
+	As a citizen I want to create sequence myself, because the guardian think I can manage this. 
+\end{enumerate}
+
+\subsection{Picto Creator}
+The Picto Creator is a drawing app, that can be used to create and edit pictograms. It is possible to use the camera and microphone when creating these. These user stories is for Picto Creator.
+
+\begin{enumerate}
+	\setcounter{enumi}{31} % Give number of the previous number
+	\item \textbf{Delete a pictogram (4)}\\
+	As a guardian I want to delete a pictogram from the system, if a citizen does not need it, or if it gives bad memories.
+	
+	\item \textbf{Copy or replace (1)}\\
+	As a guardian I want to choose whether a pictogram should replace an earlier version or create a new pictogram with a new name, as this choice varies.
+\end{enumerate}
+
+\subsection{Category Tool}
+The Category Tool is used to create, edit and delete categories of pictograms. Categories makes it easier to find and use pictograms in the other applications. There is no more user stories for this application.
+
+\subsection{Picto Reader}
+Picto Reader is an application used by citizens, making them able to create a series of pictograms, that can be read aloud or shown to guardian. The application is used to communicate. These user stories is relevant in Picto Reader.
+
+\begin{enumerate}
+	\setcounter{enumi}{33} % Give number of the previous number
+	\item \textbf{Sentence construction (2)}\\
+	As a citizen I want to construct sentences with pictograms, for instance [I would like] or [I] [would] [like], because I want to learn to talk using sentences.
+	
+	\item \textbf{Blocking (3)}\\
+	As a guardian I want to make a visual blocking of a category or a pictogram, since there can be certain pictograms or categories that cannot be used in a given situation.
+	
+	\item \textbf{Loading (2)}\\
+	As a citizen, I would like to be informed that the application is loading a newly chosen category, so i know something happens.
+\end{enumerate}
+
+\subsection{Timer}
+The Timer application can display a timer in the other applications. This is used to restrict how much time a citizen can use the tablet or chosen application. These user stories covers the features needed in the Timer.
+
+\begin{enumerate}
+	\setcounter{enumi}{36} % Give number of the previous number
+	\item \textbf{Pause (3)}\\
+	As a guardian I want to pause the timer when a citizen is not doing the given task, to be sure that the allocated amount of time is being used on the agreed activity, for instance sitting at the table.
+	
+	\item \textbf{Locking the tablet (3)}\\
+	As a guardian I want to decide if the tablet locks after the time is up or if it can be used freely after, so I can decide if a citizen should move on to another activity or keep using the tablet.
+	
+	\item \textbf{Activity after completed time (4)}\\
+	As a guardian I want to set the timer to decide what activity happens after completed time to make sure the day is progressing as planned.
+	
+	\item \textbf{Pre-defined timers (4)}\\
+	As a guardian I often use 3, 5, 10, 15 and 20 minutes in the timer, so they should be defined per default, such that they can be used faster.
+\end{enumerate}
+
+\subsection{Life Stories}
+Life Stories can be used to create sequences of a certain activity, e.g. going to the fair. This can be used to show the things they have done. These user stories covers features in Life Stories.
+
+\begin{enumerate}
+	\setcounter{enumi}{40} % Give number of the previous number
+	\item \textbf{At the end of the day: Citizen (5)}\\
+	As a citizen I want to explain my day through pictograms, because I can use this to support me when telling others about it.
+	
+	\item \textbf{Adding text and sound (5)}\\
+	As a guardian I want to add text and sound to life stories. This will help the user remembering the specifics about the current life story.
+\end{enumerate}
+
+\subsection{Category Game}
+The Category game is about a train, where the pictograms of some categories are at the first station, and must be moved to the correct station. This is the relevant user stories.
+
+\begin{enumerate}
+	\setcounter{enumi}{42} % Give number of the previous number
+	\item \textbf{Instructions (3)}\\
+	As a citizen I want a short introduction to the game so that I know how it works without help from a guardian.
+\end{enumerate}
+
+\subsection{Voice Game}
+Voice game is about changing lanes with a car, where the car is controlled by the users voice. The user is supposed to pick up/avoid object along the way.
+
+\begin{enumerate}
+	\setcounter{enumi}{43} % Give number of the previous number
+	\item \textbf{Standard games (5)}\\
+	As a guardian I want to have default games for practising high and low voice control, so I can quickly set up the needed game.
+\end{enumerate}
+
+\subsection{Administration}
+The Administration app is used to create, edit and delete users.
+
+\begin{enumerate}
+	\setcounter{enumi}{44} % Give number of the previous number
+	\item \textbf{Backup (2)}\\
+	As a guardian I want to be able to take a backup of personal pictograms, categories, sequences, and weekly schedules, as these might be useful later. 
+	
+	\item \textbf{Manage guardians (2)}\\
+	As a guardian in an institution I want to create new guardians and edit the current guardians in my institution, as new people might be hired in an institution or information about guardians might change.
+\end{enumerate}
+
+\subsection{Web Administration}
+Web version of administration app, but with additional features.
+
+\begin{enumerate}
+	\setcounter{enumi}{46} % Give number of the previous number
+	\item \textbf{Administrate profiles (1)}\\
+	As a guardian I want to administrate the citizen profiles from a homepage, such that I am not limited to using a tablet for doing this. 
+\end{enumerate}
+
+\subsection{Database}
+
+\begin{enumerate}
+	\item \textbf{Should be able to track synchronization result(2)}\\
+	As a guardian, I would like to be able to check the synchronization status, so I can see if I have unsaved changes, and when I last synchronized.
+	
+	\item \textbf{Sync status (2)} \\
+	As a guardian I would like to be notified of the results of synchronization, so I know if my data have been uploaded.
+	
+	\item \textbf{Manual synchronization (5)}\\
+	As a guardian I would like to be able to manually initialize a synchronization, so I can upload / download changes if they have not been synchronized automatically. 
+	
+	\item \textbf{DB component usability (5)}\\
+	As a B\&D or GUI developer I would like for the DB components to be easy to use, so I can abstract away from the db structure when I write new apps. 
+	
+	\item \textbf{Security (4)}\\
+	As a user I would like my confidential data to be secure and for the app to adhere to all laws, so I can safely use the GIRAF app.
+	
+	\item \textbf{Mine private data skal ikke kunne ses af andre(1)}\\
+	As a user I would like my confidential data to be secure and for the app to adhere to all laws, so I can safely use the GIRAF app. 
+	
+	\item \textbf{DB subset for stand-alone apps (4)}\\
+	As a B\&D developer I would like to download a defined subset of the DB, so that I can run a stand alone version of apps that require pictograms, without having a user or being able to make changes.  
+	
+	\item \textbf{Better status on initial download (1)}\\
+	As a user i would like to get more precise feedback on the initial download so i know how much time there is left.
+	
+	\item \textbf{Save color schema for giraf (5)}\\
+	As a guardian I would like to save the color schema for certain citizens, so that conflicts regarding ownership of tablets. 
+	
+	\item \textbf{Private pictograms (2)}\\
+	As a guardian i would like to have private pictograms, which can be added, removed and edited. I should be able to allow the pictograms for citizens profiles, so that the pictograms can be used only by me and my citizens.
+	
+	\item \textbf{Edit public pictograms (2)}\\
+	As a guardian i would like to use a public pictogram, edit it and save it as a private pictogram, so they can be used as templates.
+	
+	\item \textbf{For every pictogram a sound clip must exist (5)}\\
+	As a citizen I would like to have sound clips for every pictogram, so that I can have them read aloud.
+	
+	\item \textbf{Allow the addition and removal of sound from a pictogram (5)}\\
+	As a guardian I would like to manage the sounds of pictograms so I can remove wrong sounds and add correct ones instead.
+	
+	\item \textbf{Pictogram exclusion (3)}\\
+	As a guardian I would like to be able to exclude certain public pictograms from the apps of my assigned citizens, so I can limit the number of pictograms I have to search through when I set up sequences and other things.
+	
+	\item \textbf{Save choice between multi-choice activities and whether it is complete or not. (1)}\\
+	As a guardian I would like to be able to save the citizens choice in the multi choice, so the actions that have already been taken are shown with the action chosen
+	
+	\item \textbf{Save 'Progress' (1)}\\
+	As a citizen I would like to be able to see how far I have come in my weekly schedule, so I do not have to remember this every time I close the weekly schedule
+	
+	\item \textbf{Save ‘templates’ for week schedule (2)}\\
+	As a guardian I would like to be able to save templates for weekly schedules for citizens and share them between multiple citizens so I can more easily create new weekly schedules for citizens
+	
+	\item \textbf{Save Life Story for citizens (5)}\\
+	As a guardian i would like to be able to save and manage life stories for citizens, so i can do it for the citizens
+	
+	\item \textbf{Save how many pictograms to be shown at a time (5)}\\
+	As a guardian i would like to be able to set settings for citizens life story app such as how many pictograms are shown at a time, so that the app fits the specific citizen.
+	
+	\item \textbf{ Restart of init download(1)}\\
+	As a user i would like the initial download to continue after a disconnect when the internet is available again so.
+\end{enumerate}
+
+\subsection{Build and Deploy}
+
+\subsection{Structural Changes}
+These user stories are related to the overall structure of the project.
+
+\begin{enumerate}
+	\item \textbf{Replace Redmine with another tool (4)}\\
+	As a developer I would want to use another tool instead of Redmine so that i could get a more reliable organization tool as the handling of user stories on Redmine is clumsy and is therefore not used by the majority.
+\end{enumerate}
 
 \subsection{Server}
 These user stories should have an impact on the server or be strongly related to server work.
 
-\item \textbf{Acquire faster servers (3)} \\
-As a developer I would like the servers to be faster, so I do not need to wait too long for Jenkins to build my newest release as others could be waiting for the new release.
-
-\item \textbf{Security standards (5)} \\
-As a developer I would like the server to follow the security standards set by the Government, so that the server can be moved to a server run by the Government.
+\begin{enumerate}
+	\item \textbf{Acquire faster servers (3)} \\
+	As a developer I would like the servers to be faster, so I do not need to wait too long for Jenkins to build my newest release as others could be waiting for the new release.
+	
+	\item \textbf{Security standards (5)} \\
+	As a developer I would like the server to follow the security standards set by the Government, so that the server can be moved to a server run by the Government.
+\end{enumerate}
 
 \subsection{Jenkins}
 These user stories should be related to Jenkins and any work done on Jenkins.
 
-\item \textbf{Monkey testing screen-capture from last failure (2)}\\
-As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened. 
-
-\item \textbf{Add code style check to Jenkins (4)}\\
-As a developer I would like to have Jenkins automatically check whether I follow the specified coding style, because it would allow me to focus on developing content rather than spending time on prettying my code.
-
-\item \textbf{Safely disconnecting tablets from testing pool (-)}\\
-As a developer I would like to be able to disconnect my tablet from the testing pool safely, without breaking a build on Jenkins.
+\begin{enumerate}
+	\item \textbf{Monkey testing screen-capture from last failure (2)}\\
+	As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened. 
+	
+	\item \textbf{Add code style check to Jenkins (4)}\\
+	As a developer I would like to have Jenkins automatically check whether I follow the specified coding style, because it would allow me to focus on developing content rather than spending time on prettying my code.
+	
+	\item \textbf{Safely disconnecting tablets from testing pool (-)}\\
+	As a developer I would like to be able to disconnect my tablet from the testing pool safely, without breaking a build on Jenkins.
+\end{enumerate}
 
 \subsection{Build Release}
-These user stories should be related to the build release of \giraf.
+These user stories should be related to the build release of GIRAF.
 
-\item \textbf{Make a package for download on Google Play}\\
-As a customer I would like to have a package available on Google Play that would allow me to download just one thing that would install all needed parts for the Giraf-project, so I do not have to download them all individually.
+\begin{enumerate}
+	\item \textbf{Make a package for download on Google Play}\\
+	As a customer I would like to have a package available on Google Play that would allow me to download just one thing that would install all needed parts for the Giraf-project, so I do not have to download them all individually.
+\end{enumerate}
 
 \subsection{Documentation}
-These user stories should be related to the documentation of \giraf.
+These user stories should be related to the documentation of GIRAF.
 
-\item \textbf{Update and extend descriptions of apps and libraries (2)}\\
-As a customer and as a developer I would like to have better and more up-to-date descriptions of every app. This should be in some commonly shared place and on Google Play.
+\begin{enumerate}
+	\item \textbf{Update and extend descriptions of apps and libraries (2)}\\
+	As a customer and as a developer I would like to have better and more up-to-date descriptions of every app. This should be in some commonly shared place and on Google Play.
+\end{enumerate}
 
 \subsection{Stand-Alone apps}
 These user stories should be related to the stand-alone concept.
 
-\item \textbf{Stand-Alone: Core package (5)}\\
-As a customer I would like the apps to be stand-alone so that i don't have to install any additional app to get one specific app working.
+\begin{enumerate}
+	\item \textbf{Stand-Alone: Core package (5)}\\
+	As a customer I would like the apps to be stand-alone so that i don't have to install any additional app to get one specific app working.
+\end{enumerate}
 
 \subsection{Git}
 These user stories should be related to the Git-repositories.
 
-\item \textbf{Set up major and minor tags on Git (2)}\\
-As a developer I would like to be able to quickly and easily revert to a previous state of the development using tags for every major and minor release.
+\begin{enumerate}
+	\item \textbf{Set up major and minor tags on Git (2)}\\
+	As a developer I would like to be able to quickly and easily revert to a previous state of the development using tags for every major and minor release.
+\end{enumerate}
 
 \subsection{Analysis}
-These user stories should be related to analysis of potential new ideas for \giraf.
+These user stories should be related to analysis of potential new ideas for GIRAF.
 
-\item \textbf{Future technology analysis (5)}\\
-As semester coordinator I would like to know which future technologies could be useful in the project’s future.
-
+\begin{enumerate}
+	\item \textbf{Future technology analysis (5)}\\
+	As semester coordinator I would like to know which future technologies could be useful in the project’s future.
 \end{enumerate}
 
 \section{Release Backlog - Sprint 1}
 This section includes all user stories from the release from Sprint 1.
 
+\subsection{GUI}
+
 \begin{enumerate}
+	\setcounter{enumi}{0} % Give number of the previous number
+	\item \textbf{Design document (1)}\\
+	As a developer I want a design document with guidelines for the design, so I can make GIRAF's design consistent for the users.
+	
+	\item \textbf{Opening an application using the launcher (1)}\\
+	As a user I want to choose the applications that i want to work with through the launcher, so I have a common place to access my applications.
+	
+	\item \textbf{Understandable applications (1)}\\
+	As a guardian I want to read the application name on my native language, and want to conclude from the name, what the application is capable of, so the system is understandable for me.
+	
+	\item \textbf{Allow applications (1)}\\
+	As a guardian I want to choose which applications a citizen has access to, both GIRAF applications and the applications installed on the tablet, so they only have access to relevant application.
+	
+	\item \textbf{Show applications (1)} \\
+	As a guardian I want to be able to decide how many applications is present on each page, for a specific citizen, making this adjustable to the citizens capability.
+	
+	\item \textbf{Android settings (1)}\\
+	As a guardian I want the opportunity to access the android settings, enabling me to change these. 
+	
+	\item \textbf{Authentication responding to the the user (1)}\\
+	As a user logging in i want better feedback of successful and failed QR scans, so i know if it works.
+	
+	\item \textbf{Log in for developer (1)}\\
+	As a developer I want a button to skip the authentication for development purposes, as it is annoying to use the QR scanner to log in.
+	
+	\item \textbf{Show collections of pictograms (1)}\\
+	As a guardian I want to find pictograms when I need it, for example when I am creating a week schedule or a category.
+\end{enumerate}
 
-\item \textbf{Setting up server}\\
-As a developer
+\subsection{Database}
 
-\item \textbf{Setting up Git}\\
-As a developer I would like to have git up and running, so that I can access and share code for the apps in the project.
+\begin{enumerate}
+	\item \textbf{Unit Testing of DB-lib(1)}\\
+	As a developer I want DB-lib to be thoroughly unit tested to ensure functionality when code is changed in DB-lib.
+	
+	\item \textbf{Reduce Initial Download Time(1)}\\
+	As a user I want the initial download to take less time so I do not have to wait for so long. 	
+	
+	\item \textbf{Compress pictograms(1)}\\
+	As a developer I want the pictograms compressed to reduce the initial download time so the user do not have to wait for so long. 
+	
+	\item \textbf{Remove the redundancy present in the DB-lib controllers and models(1)}\\
+	As a developer I want the redundancy present in DB-lib to be removed so it is easier to use and change.
+\end{enumerate}
 
-\item \textbf{Setting up server}\\
-As a developer I would like for the servers to be running, so that I can use all the tools running on them, and so that I can access the files located on the servers.
+\subsection{Build and Deploy}
 
-\item \textbf{Google Analytics Setup}\\
-As a developer I would like to have Google Analytics setup in the apps so that I can get get crash reports for the apps.
-
-\item \textbf{Setup of Google Play}\\
-As a developer I would like Google Play to be used in the project, so that the apps can be released on the app store.
-
-\item \textbf{Update to Android 1.0.x}\\
-As a developer i would like to have the version of Android studio used updated to version 1.0.x, so that I can use the new functionalities in that version.
-
-\item \textbf{Central Documentation}\\
-As a developer I would like to have a place, where all the code in the project is documented, so that I do not have to look several different places or source code files to find the one function I need.
-
-\item \textbf{Continuous build and integration}\\
-As a developer I would like to have an automated build-function running on Jenkins, so that I know the build I upload is attempted to be built and tested.
-
-\item \textbf{Wiki entry on process}\\
-As a developer I would like to have a specification on how the project’s overall process is structured, so that I know what my responsibility in the project is and how I should work as a part of the greater unit.
-
+\begin{enumerate}
+	\item \textbf{Setting up server}\\
+	As a developer
+	
+	\item \textbf{Setting up Git}\\
+	As a developer I would like to have git up and running, so that I can access and share code for the apps in the project.
+	
+	\item \textbf{Setting up server}\\
+	As a developer I would like for the servers to be running, so that I can use all the tools running on them, and so that I can access the files located on the servers.
+	
+	\item \textbf{Google Analytics Setup}\\
+	As a developer I would like to have Google Analytics setup in the apps so that I can get get crash reports for the apps.
+	
+	\item \textbf{Setup of Google Play}\\
+	As a developer I would like Google Play to be used in the project, so that the apps can be released on the app store.
+	
+	\item \textbf{Update to Android 1.0.x}\\
+	As a developer i would like to have the version of Android studio used updated to version 1.0.x, so that I can use the new functionalities in that version.
+	
+	\item \textbf{Central Documentation}\\
+	As a developer I would like to have a place, where all the code in the project is documented, so that I do not have to look several different places or source code files to find the one function I need.
+	
+	\item \textbf{Continuous build and integration}\\
+	As a developer I would like to have an automated build-function running on Jenkins, so that I know the build I upload is attempted to be built and tested.
+	
+	\item \textbf{Wiki entry on process}\\
+	As a developer I would like to have a specification on how the project’s overall process is structured, so that I know what my responsibility in the project is and how I should work as a part of the greater unit.
 \end{enumerate}
 
 \section{Release Backlog - Sprint 2}
 This section includes all user stories from the release from Sprint 2.
 
 \begin{enumerate}
+	\setcounter{enumi}{0} % Give number of the previous number
+	\item \textbf{Product Backlog (1)}\\
+	As a developer I want a Product Backlog that represents the users need, so I can work based on this in the following sprints.
+	
+	\item \textbf{Delete sequences (3)}\\
+	As a guardian I want to delete sequences for citizens, when they no longer are relevant.
+	
+	\item \textbf{Undo (1)}\\
+	As a user i want undo/redo in Picto Creator, so i can easily recover from errors.
+	
+	\item \textbf{Creating a pictogram (1)}\\
+	As a guardian I want to create a new pictogram, and save this to a specific citizen or the institution, to describe an action or thing that is needed.
+	
+	\item \textbf{Searching (1)}\\
+	As a guardian, when I am searching for pictograms, I want to be searching for both the names, the categories, and the tags assigned to them creation.
+	
+	\item \textbf{Day-mode (1) }\\
+	As a citizen I want to see the plan for one day, by rotating the tablet to portrait mode. This makes me able to see more pictograms and contains no disturbances from the other days.
+	
+	\item \textbf{Save and edit week schedules (1)}\\
+	As a guardian I want to save and edit week schedules such that I can make changes in a week schedule if necessary.
+	
+	\item \textbf{Keeping track of the schedule (1)} \\
+	As a citizen I want to keep track of the schedule by identifying the color of the weekday, and then find the schedule for that day, to give me an overview.
+\end{enumerate}
 
-\item \textbf{Binaries instead of submodules}\\
-As a developer I would like to use binary files in the project so that i do not have to use submodules on the git repositories.
+\subsection{Database}
 
-\item \textbf{Snapshots of database/Backups}\\
-As a developer
+\begin{enumerate}
+	\item \textbf{One Way Compatibility Between Remote and Local DB(1)}\\
+	As a developer I want to be able to save everything in remote that i am able to save in local to avoid database errors.
+	
+	\item \textbf{Evaluation of DB Design(1)}\\
+	As a developer I want to evaluate the design of the database to deem if a rework is needed at some point. 
+	
+	\item \textbf{Save Setting in LocalDB for a Profile(1)}\\
+	As a developer i want to be able to save a users settings in his profile in LocalDB so they are available next time he log in.
+\end{enumerate}
 
-\item \textbf{SMTP setup}\\
-As a developer I would like to have access to a central mailing system that can automatically notify me of changes, so that I can easily and without effort on my part stay up to date.
+\subsection{Build and Deploy}
 
-\item \textbf{Logging}\\
-As a developer
-
-\item \textbf{Gitlab for the server/GOG}\\
-As a developer I would like to have access to a server-side Git-interface, so that it would be easier to use Git.
-
-\item \textbf{Faster build and test}\\
-As a developer I would like faster builds and tests on the jenkins, so that I do not have to wait as long for applications to be built and tested.
-
-\item \textbf{Code coverage}\\
-As a developer I would like to have code coverage on jenkins so that i can how much of the code is tested by Jenkins.
-
-\item \textbf{Test case installation}\\
-As a developer I would like to have Jenkins attempt to install the new builds, so that I can avoid conflicts in installation situations.
-
-\item \textbf{Release new APK for Sprint 1}\\
-As a customer I would like to have access to the newest stable version of the program, so that I can enjoy the new features I have had presented.
-
-\item \textbf{Auto Upload Beta and Alpha release}\\
-As a developer I would like to have a Alpha and a Beta release of the different apps, so that I can test the app from the store without releasing an unstable version to the customer.
-
-\item \textbf{Dependency}\\
-As a developer I would like to know which apps and libraries that are dependent on each other, so that I know which libraries to include in my app when coding.
+\begin{enumerate}
+	\item \textbf{Binaries instead of submodules}\\
+	As a developer I would like to use binary files in the project so that i do not have to use submodules on the git repositories.
+	
+	\item \textbf{Snapshots of database/Backups}\\
+	As a developer
+	
+	\item \textbf{SMTP setup}\\
+	As a developer I would like to have access to a central mailing system that can automatically notify me of changes, so that I can easily and without effort on my part stay up to date.
+	
+	\item \textbf{Logging}\\
+	As a developer
+	
+	\item \textbf{Gitlab for the server/GOG}\\
+	As a developer I would like to have access to a server-side Git-interface, so that it would be easier to use Git.
+	
+	\item \textbf{Faster build and test}\\
+	As a developer I would like faster builds and tests on the jenkins, so that I do not have to wait as long for applications to be built and tested.
+	
+	\item \textbf{Code coverage}\\
+	As a developer I would like to have code coverage on jenkins so that i can how much of the code is tested by Jenkins.
+	
+	\item \textbf{Test case installation}\\
+	As a developer I would like to have Jenkins attempt to install the new builds, so that I can avoid conflicts in installation situations.
+	
+	\item \textbf{Release new APK for Sprint 1}\\
+	As a customer I would like to have access to the newest stable version of the program, so that I can enjoy the new features I have had presented.
+	
+	\item \textbf{Auto Upload Beta and Alpha release}\\
+	As a developer I would like to have a Alpha and a Beta release of the different apps, so that I can test the app from the store without releasing an unstable version to the customer.
+	
+	\item \textbf{Dependency}\\
+	As a developer I would like to know which apps and libraries that are dependent on each other, so that I know which libraries to include in my app when coding.
+\end{enumerate}
 
 \section{Release Backlog - Sprint 3}
 This section includes all user stories from the release from Sprint 3.
 
+\subsection{GUI}
+
 \begin{enumerate}
+	\setcounter{enumi}{0} % Give number of the previous number
+	\item \textbf{Create sequences (1)}\\
+	As a guardian I want to create sequences for citizens, including choices, so I can show them how to perform tasks.
+	
+	\item \textbf{Edit sequence (3)}\\
+	As a guardian I want to replace pictograms in a sequence, change the title, and change the thumbnail, because a citizen for an example got a new jacket and need to use the pictogram with the new jacket instead of the old.
+	
+	\item \textbf{Delete sequences (3)}\\
+	As a guardian I want to delete sequences for citizens, when they no longer are relevant.
+	
+	\item \textbf{Add pictogram to category (1)}\\
+	As a guardian I want to add an existing pictogram to one or more categories if I think the pictograms is missing from the category. 
+	
+	\item \textbf{Remove a pictogram from a category (1)}\\
+	As a guardian I want to be able to remove a pictogram from a category, if I have mistakenly added a pictogram to a category where this does not belong.
+	
+	\item \textbf{Create category (2)}\\
+	As a guardian I want to create a new category, because I need a new category, and the existing ones does not suffice. 
+	
+	\item \textbf{Show categories (1)}\\ 
+	As a guardian I want to see the categories associated to the institution and specific citizens, because I want to see and edit these. 
+	
+	\item \textbf{Delete category (2)}\\ 
+	As a guardian I want to delete a category, because I made one by mistake or if the category is no longer necessary.
+	
+	\item \textbf{Manage categories for more than one citizen (-)}\\
+	As a guardian i want to create, edit and delete categories for more than one citizen at the time, so i do not need to make the same category more than one time.
+	
+	\item \textbf{Help function (-)}\\
+	As a user i would to have some help functionality that explains what the various views in the app does and contains, so i can easier can learn the system.
+	
+	\item \textbf{Print (1)}\\
+	As a guardian I want to print out pictograms, so i can use them in physical tools.
+	
+	\item \textbf{Eraser tool (1)}\\
+	As a user i want to be able to erase parts of a pictogram, so it fits my needs.
+	
+	\item \textbf{Creating a pictogram (1)}\\
+	As a guardian I want to create a new pictogram, to describe an action or thing that is needed, and save this to a specific citizen or the institution.
+	
+	\item \textbf{Access category tool (1)}\\
+	As a guardian I want to be able to open the Category Tool from Pictosearch, if a pictogram is missing in a category, or if an entire category is missing. 
+	
+	\item \textbf{Viewing categories (1)}\\ 
+	As a guardian when I am searching for pictograms, I want to find entire categories, which I can enter to pick certain pictograms. This will make it easier to find pictograms.
+	
+	\item \textbf{Changing to new activity (1)}\\ 
+	As a citizen I want to keep track the activities for the day. I expect an indication about which activity I am currently at.
+	
+	\item \textbf{“Choose” activity (1)}\\
+	As a guardian I want to give the citizens the opportunity to choose between many possible activities, so the citizen themselves can choose which activity they want to do. I want to choose up to 10 activities, that the citizens can choose between.
+\end{enumerate}
 
-\item \textbf{Logging}\\
-As a developer I would like to have logging for the database so that the server follows the requirement set by the Government.
+\subsection{Database}
 
-\item \textbf{Symmetric DS}\\
-As a developer I would like for the server to support synchronization with the database.
+\begin{enumerate}
+	\item \textbf{Save game settings(4)}\\
+	As a guardian i would like to save settings for the category-game, so that it can be used another time without setting it up.
+	
+	\item \textbf{Enable storage of more settings, like presets(4)}\\
+	As a guardian i would like to save presets of settings for the category-game, so that it can easily be used another time. 
+	
+	\item \textbf{Save Setting in LocalDB for a Profile(1)}\\
+	As a developer i want to be able to save a users settings in his profile in LocalDB so they are available next time he log in.
+	
+	\item \textbf{Change id datatypes(2)}\\
+	As a GUI developer I would like all ids returned by the DB components to be longs, so that it conforms with the Android standards and I do not have to cast them every time.
+	
+	\item \textbf{Naming of apps(1)}\\
+	As a B\&D developer I would like all apps to be consistent in the naming they use, so I can more easily publish apps to google play and so I don not have to know which names correspond to which. 
+	
+	\item \textbf{Status for large queries(2)}\\
+	As a GUI developer i would like to be able to get information of the status when doing larger queries, so that it can be used to notify a user of the app.
+	
+	\item \textbf{Profiles divided into organizations(1)}\\
+	As a guardian I would like to divide my department into groups, so I can then view citizens based on a defined subcategorization, e.g. Blue room and Red room.
+	
+	\item \textbf{Guardians and citizens can be associated with departments(1)}\\
+	As a guardian I would like to edit changes for citizens in my department, so I can edit changes for the citizens I am responsible for, and get a list of the citizens I am responsible for.
+	
+	\item \textbf{Pictogram categories(1)}\\
+	As a guardian i would like to save, see, use, add, remove create, modify and change categories for pictograms, so that the pictograms can be grouped. 
+	
+	\item \textbf{Enable saving of permissions in the DB(2)}\\
+	As a guardian I would like to be able to save extra permissions for citizens, so citizens that are able to make their own sequences and such can be allowed to do so without using a guardian profile.
+	
+	\item \textbf{Save sequence settings(5)}\\
+	As a guardian i would to save settings for the sequence app, primarily whether a citizen is allowed to create sequences, so that it can be managed which citizens that can create sequences. 
+	
+	\item \textbf{Sequences compatible with weekly schedule(3)}\\
+	As a guardian i would to be able to use sequences in the weekly schedule, so that it is easy to in both apps.
+	
+	\item \textbf{Save weekly schedule for citizens(3)}\\
+	As a guardian I would like to be able to save the weekly schedule for citizens so I can have multiple weeks saved for each citizen.
+	
+	\item \textbf{Tags as attributes of pictograms(1)}\\
+	As a GUI developer group I would like the tags of a pictogram to be available as an attribute of a picogram when it is sent to my app. 
+	
+	\item \textbf{Feedback regarding connection(2)}\\
+	As a guardian I would like to be informed if internet connection is unavailable during initial load, so I do not wait forever.
+\end{enumerate}
 
-\item \textbf{Snapshots of database/Backups}\\
-As a developer I would like to have snapshots of the database so in the event of server breakdown, less data is lost.
+\subsection{Build and Deploy}
 
-\item \textbf{Monkey test}\\
-As a developer I want to have monkeys tests, so that the reliability of the apps can be tested.
-
-\item \textbf{UI test on Jenkins}\\
-As a developer I would like to have UI test on jenkins so that the UI can be tested for an app when it is pushed on the master branch.
-
-\item \textbf{Share the knowledge from Guides}\\
-As a developer I would like for all groups to know all the guides they have access to.
-
-\item \textbf{Add a guide on how to do UI test}\\
-As a developer I would like to have a guide on how to do UI tests.
-
-\item \textbf{Make guidelines for Continuous Integration}\\
-As a developer 
-
-\item \textbf{Specify the Scrum process used}\\
-As a developer I would like to have the Scrum process used by the project specified to better integrate groups into the process.
-
+\begin{enumerate}
+	\item \textbf{Logging}\\
+	As a developer I would like to have logging for the database so that the server follows the requirement set by the Government.
+	
+	\item \textbf{Symmetric DS}\\
+	As a developer I would like for the server to support synchronization with the database.
+	
+	\item \textbf{Snapshots of database/Backups}\\
+	As a developer I would like to have snapshots of the database so in the event of server breakdown, less data is lost.
+	
+	\item \textbf{Monkey test}\\
+	As a developer I want to have monkeys tests, so that the reliability of the apps can be tested.
+	
+	\item \textbf{UI test on Jenkins}\\
+	As a developer I would like to have UI test on jenkins so that the UI can be tested for an app when it is pushed on the master branch.
+	
+	\item \textbf{Share the knowledge from Guides}\\
+	As a developer I would like for all groups to know all the guides they have access to.
+	
+	\item \textbf{Add a guide on how to do UI test}\\
+	As a developer I would like to have a guide on how to do UI tests.
+	
+	\item \textbf{Make guidelines for Continuous Integration}\\
+	As a developer I would like to know the specific differences between a major and a minor release.
+	
+	\item \textbf{Specify the Scrum process used}\\
+	As a developer I would like to have the Scrum process used by the project specified to better integrate groups into the process.	
 \end{enumerate}
 
 \section{Release Backlog - Sprint 4}
 This section includes all user stories from the release from Sprint 4.
 
+\subsection{GUI}
+
 \begin{enumerate}
-
-\item \textbf{Ensure App Name Consistency}\\
-As a developer I would like all the references to an app and library to use the same name so that it is easier to follow and understand which apps are referenced when reading a name. All names on git, jenkins, and google play should be consistent.
-
-\item \textbf{Make Pictosearch a Library}\\
-As a customer I would like PictoSearch to be a Library so that i don’t have to download it separately from other apps.
-
-\item \textbf{Reset the dummy-database every night}\\
-As a developer I would like the dumme-database to reset every night to clean up any mess that might have been made during the day so that these things do not cause any trouble in the future.
-
-\item \textbf{Prioritization on Jenkins}\\
-As a developer I want libraries to have higher priority that other jobs in the build scheduling on Jenkins so that libraries are not bottlenecked when several people are reliant on them.\\
-Jobs must not be starved.\\
-Libraries must be prioritized higher than other job types.
-
-\item \textbf{Ensure that every unit-test, monkey-test, ui-test, and maybe integration-tests runs up against the test database}\\
-As a developer, as a future developer, and as a customer I would like the database to not be wiped every time a test is run because I would then lose valuable data.\\
-
-\item \textbf{Monkey tests on debyg versions of apps}\\
-As a developer I want tests to run on the debug version of apps so that they can be tested on a test database.\\
-Monkey tests must run on debug APKs.
-
-\item \textbf{Monkey testing screen-capture from last failure}\\
-As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened.
-
-\item \textbf{Decrease job build times on Jenkins (Technical work)}\\
-
-\item \textbf{Easy way to download and install all apps}\\
-As a developer I want an easy way to download and install all apps so that it is easy to test the apps combined, and easy to show the external customers.\\
-Users must not install additional software onto their computers.\\
-Old versions of apps must be updated.\\
-Users should be able to merely run a program that then automatically downloads and installs all apps on a device.
-
-\item \textbf{Preparations for next semester}
-As a developer i would like to have guides provided that specify how to use the development tools used in the project, so that is don’t have to use as much time researching how to use them before i can start working on the project.
-
-\item \textbf{One combined place/report with all relevant information}\\
-As a future developer I would like for all relevant information to be available in one place whether this is a report or some other place I have access to, in order to have an easier time getting in to the project. All relevant information is on giraf.cs.aau.dk.
-
+	\item \textbf{Update design document (1)}\\
+	As a developer i want the design document to be updated with all the design decisions, so it becomes easy to make a consistent design.
+	
+	\item \textbf{Loading progress (2)}\\
+	As a user i want to see how the loading is going in the launcher, so i can know that it is going forward.
+	
+	\item \textbf{Add profiles (1)}\\
+	As a guardian be able to add a new citizen profile, if a new citizen has started in the institution, so he can have a profile with his personal settings and pictograms. 
+	
+	\item \textbf{Delete profiles (1)}\\
+	As a guardian I want to be able to remove a citizens profile from the system. I want to be able to delete his personal pictograms from the system, as these are no longer necessary. I want large degree of certainty about confirming that these should be permanently deleted, as i do not want to lose any pictograms by accident. Because a citizen is no longer a part of my institution.
+	
+	\item \textbf{Transfer profiles to new institutions (5)}\\
+	As a guardian I want to be able to transfer a citizen profile to a new institution, so the citizen can keep his personal data, when he is moving to a different institution. 
+	
+	\item \textbf{Move citizen to a new group (1)}\\
+	As a guardian I want to be able to move a citizen from one group to another, as this would be much easier than deleting and creating the profile again.
+	
+	\item \textbf{Manage groups (4)}\\
+	As a guardian I want to create new groups in my institution and edit the current groups, as citizens can be assigned to a new group, or moved from one group to another.
+	
+	\item \textbf{Train a citizens voice (3)}\\
+	As a citizen I want to play a game to practice the level of my voice, as I have a hard time controlling my voice.
+	
+	\item \textbf{Collect or Avoid in Voice game(3)}\\
+	As a guardian I want to set up the track for a citizen, choosing if they should collect stars or avoid boxes, so I can a game best suited for the citizen. When this is set, I want to go directly to a citizen profile, and let that citizen play.
+	
+	\item \textbf{Using the Timer (1)}\\
+	As a guardian I want to set a timer with a visual representation, of how long a citizen have to do an activity, in full screen, because it makes the concept of time easier to understand.
+	
+	\item \textbf{Stop timing (1)}\\
+	As a guardian I want to stop the timer while it is running, because a situation has happened where it no longer makes sense having the timer running.
+	
+	\item \textbf{Timer available in other apps (3)}\\
+	As a guardian I want to set the Timer to be seen in another application so the citizen can keep an eye on the time meanwhile.
+	
+	\item \textbf{Show a sequence (1)} \\
+	As a citizen I want to see a sequence, that explains me how to perform a certain activity, as I cannot remember and manage the correct order.
+	
+	\item \textbf{Mark activity as done (1)}\\
+	As a citizen I can have trouble managing a long sequence. I want to mark activities as done, so I can keep track of the progress in the sequence.
+	
+	\item \textbf{Return pictograms and categories (2)}\\
+	As a guardian I want to get one or more pictograms or categories, based on the application that uses Pictosearch, so I can find what I need to use.
+	
+	\item \textbf{At the end of the day: Guardian (5)}\\
+	As a guardian I want to help a citizen finding the useable pictograms for him to use for his life story, so that the user will have an easier time creating his life story.
+	
+	\item \textbf{Lock actions (2) }\\
+	As a citizen I have to take a choice when i encounter a “Choose” activity, since I can not skip or cancel activities. I cannot use the back button or clicking outside the box to close it.
+	
+	\item \textbf{Showing a specific number of pictograms (1)}\\
+	As a guardian I want to adjust the amount of pictograms that is shown in day-mode in Week Schedule, as it differs how many pictograms a citizen can handle.
+	
+	\item \textbf{Edit week schedule (1)} \\
+	As a guardian I want to edit a week schedule, marking an activity as cancelled and add new activities, as the daily schedule should correspond with the actual day. 
+	
+	\item \textbf{Train citizens understanding of categories (3)}\\
+	As a citizen I want to play the category game to get a better understanding of categories and how to divide them.
+	
+	\item \textbf{Create a game from scratch (3)}\\
+	As a guardian I want to create a category game from scratch with new categories I specify at the same time, so I can customize the game exactly how I need.
+	
+	\item \textbf{Create a category game with pre-made categories (3)}\\
+	As a guardian I want to start a game with some pre-defined categories that I have made previously, so I can quickly set up a game.
+	
+	\item \textbf{Create new pre-made game settings (-)}\\
+	As a guardian I want to have a predefined category game ready, so i can let a citizen start the game easily. 
+	
+	\item \textbf{Separate Life Stories and Week Schedule (1)}\\
+	As a developer i want to have ´´Life Storie'' and ``Week Schedule'' placed in two separate repositories.
+	
+	\item \textbf{Restructure Week Schedule (1)}\\
+	As a developer i want to restructure my use of fragments in the Week Schedule code.
+	
+	\item \textbf{Library (1)}
+	As a user i want Pictosearch to be a library used by the other applications, so i do not need to install it as a separate application.
+	
+	\fxnote{I think the following is done}
+	\item \textbf{Screen size (1)}\\
+	As a user I want the GIRAF~ applications to work on a 10” screen, as this is the tablet size we use.
+	
+	\item \textbf{App naming must be consistent (2)}\\
+	As a user i want the names of all applications to be meaningful, and consistent throughout the system, so i know which application there is referred to.
+	
+	\item \textbf{Use new libraries (1)}\\
+	As a developer i want, all applications to use the new versions of libraries, so everything is up do date and using the newest components.
+	
+	\item \textbf{No GComponents (1)}\\
+	As a developer, I would like applications to not use GComponents any more, so the old components can be removed from the code.
+	
+	\item \textbf{Screen scaling (5)}\\
+	As a user I want the system to work on tablets of different sizes, ranging from 7” - 10” in size, so i can use GIRAF~ on normal sized tablets.
 \end{enumerate}
+
+\subsection{Database}
+
+\begin{enumerate}	
+	\item \textbf{Synchronize Automatically(1)}\\
+	As a guardian I would like that my data is accessible on any tablet when logged in, so that I can switch tablet without noticing a difference.
+	
+	\item \textbf{Database Namespace(1)}\\
+	We as a GUI group would like the database namespace to match the name of the applications. 
+	
+	\item \textbf{Department-wide Save of Pictograms(2)}\\
+	As a guardian, I would like to save pictograms, categories, and sequences at the various administrative levels of my department, so I can reuse these when I set up profiles.
+	
+	\item \textbf{Reduce Ram use(2)}\\
+	As a developer, I would like for GIRAF to use less ram so it is possible to run on low-end tablets and to run more smoothly on any tablet. 
+\end{enumerate}
+
+\subsection{Build and Deploy}
+
+\begin{enumerate}
+	\item \textbf{Ensure App Name Consistency}\\
+	As a developer I would like all the references to an app and library to use the same name so that it is easier to follow and understand which apps are referenced when reading a name. All names on git, jenkins, and google play should be consistent.
+	
+	\item \textbf{Make Pictosearch a Library}\\
+	As a customer I would like PictoSearch to be a Library so that i don’t have to download it separately from other apps.
+	
+	\item \textbf{Reset the dummy-database every night}\\
+	As a developer I would like the dumme-database to reset every night to clean up any mess that might have been made during the day so that these things do not cause any trouble in the future.
+	
+	\item \textbf{Prioritization on Jenkins}\\
+	As a developer I want libraries to have higher priority that other jobs in the build scheduling on Jenkins so that libraries are not bottlenecked when several people are reliant on them.\\
+	Jobs must not be starved.\\
+	Libraries must be prioritized higher than other job types.
+	
+	\item \textbf{Ensure that every unit-test, monkey-test, ui-test, and maybe integration-tests runs up against the test database}\\
+	As a developer, as a future developer, and as a customer I would like the database to not be wiped every time a test is run because I would then lose valuable data.\\
+	
+	\item \textbf{Monkey tests on debyg versions of apps}\\
+	As a developer I want tests to run on the debug version of apps so that they can be tested on a test database.\\
+	Monkey tests must run on debug APKs.
+	
+	\item \textbf{Monkey testing screen-capture from last failure}\\
+	As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened.
+	
+	\item \textbf{Decrease job build times on Jenkins (Technical work)}\\
+	
+	\item \textbf{Easy way to download and install all apps}\\
+	As a developer I want an easy way to download and install all apps so that it is easy to test the apps combined, and easy to show the external customers.\\
+	Users must not install additional software onto their computers.\\
+	Old versions of apps must be updated.\\
+	Users should be able to merely run a program that then automatically downloads and installs all apps on a device.
+	
+	\item \textbf{Preparations for next semester}
+	As a developer i would like to have guides provided that specify how to use the development tools used in the project, so that is don’t have to use as much time researching how to use them before i can start working on the project.
+	
+	\item \textbf{One combined place/report with all relevant information}\\
+	As a future developer I would like for all relevant information to be available in one place whether this is a report or some other place I have access to, in order to have an easier time getting in to the project. All relevant information is on giraf.cs.aau.dk.
+\end{enumerate}
+
+\end{document}
