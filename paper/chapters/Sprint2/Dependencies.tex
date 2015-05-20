@@ -14,29 +14,29 @@ The first thing we did to find the dependencies was to make a list of all the ap
 	\centering
 	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{\textwidth/2}p{\textwidth/2}}
 		\textbf{Apps “Repository name”(Name of app)} & \textbf{Libs} \\ \hline \noalign{\vskip 2mm}
-		launcher (Giraf) & giraf-component\\ \noalign{\vskip 2mm}
+		launcher & giraf-component\\ \noalign{\vskip 2mm}
 		
-		zebra (Sekvens) & oasis-lib\\ \noalign{\vskip 2mm}
+		sequence & dblib\\ \noalign{\vskip 2mm}
 		
-		wombat (Timer) & local-db \\ \noalign{\vskip 2mm}
+		timer & local-db \\ \noalign{\vskip 2mm}
 		
-		croc (Piktotegner) & pictogram-lib\\ \noalign{\vskip 2mm}
+		pictocreator & pictogram-lib\\ \noalign{\vskip 2mm}
 		
-		cat (Kategori-værktøjet) & sequence-viewer\\ \noalign{\vskip 2mm}
+		categorymanager & sequence-viewer\\ \noalign{\vskip 2mm}
 		
-		cars (Stemmespillet) & category-lib\\ \noalign{\vskip 2mm}
+		voicegame & category-lib\\ \noalign{\vskip 2mm}
 		
-		train (Kategori Spillet) & TimerLib\\ \noalign{\vskip 2mm}
+		categorygame & TimerLib\\ \noalign{\vskip 2mm}
 		
-		oasis-app (“administrations værktøj”) & DrawLib\\ \noalign{\vskip 2mm}
+		administration & DrawLib\\ \noalign{\vskip 2mm}
 		
-		tortoise (Livhistorier) & Ambilwarna \\ \noalign{\vskip 2mm}
+		lifestory & Ambilwarna \\ \noalign{\vskip 2mm}
 		
 		ugeplan & barcodescanner\\ \noalign{\vskip 2mm}
 		
-		piktosearch (Tal for mig) & \\ \noalign{\vskip 2mm}
+		pictosearch & \\ \noalign{\vskip 2mm}
 		
-		parrot (Piktooplæser) & \\
+		pictoreader & \\
 		
 	\end{tabularx}
 	\label{App_Lib_Table}
@@ -55,29 +55,29 @@ From this information we made a list of all the libraries the apps are dependent
 	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{0.80\textwidth}p{0.2\textwidth}}
 		\textbf{Apps} & \textbf{Dependencies}\\ \hline \noalign{\vskip 2mm}
 		
-		launcher & → giraf-component, oasis-lib, local-db, barcodescanner\\ \noalign{\vskip 2mm}
+		launcher & → giraf-component, dblib, local-db, barcodescanner\\ \noalign{\vskip 2mm}
 		
-		zebra & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		sequence & → giraf-component, dblib, local-db, pictogram-lib, sequence-viewer\\ \noalign{\vskip 2mm}
 		
-		wombat & → giraf-component, oasis-lib, local-db, pictogram-lib, DrawLib, TimerLib, wheel \\ \noalign{\vskip 2mm}
+		timer & → giraf-component, dblib, local-db, pictogram-lib, DrawLib, TimerLib, wheel \\ \noalign{\vskip 2mm}
 		
-		croc & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		pictocreator & → giraf-component, dblib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
 		
-		cat & → giraf-component, oasis-lib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\ \noalign{\vskip 2mm}
+		categorymanager & → giraf-component, dblib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\ \noalign{\vskip 2mm}
 		
-		cars & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		voicegame & → giraf-component, dblib, local-db\\ \noalign{\vskip 2mm}
 		
-		train & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		categorygame & → giraf-component, dblib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
 		
-		oasis-app & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		administration & → giraf-component, dblib, local-db\\ \noalign{\vskip 2mm}
 		
-		tortoise & → giraf-component, oasis-lib, local-db, pictogram-lib \\ \noalign{\vskip 2mm}
+		lifestory & → giraf-component, dblib, local-db, pictogram-lib, sequence-viewer \\ \noalign{\vskip 2mm}
 		
-		ugeplan\protect\footnotemark & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		ugeplan\protect\footnotemark & → giraf-component, dblib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
 		
-		piktosearch & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		piktosearch & → giraf-component, dblib, local-db\\ \noalign{\vskip 2mm}
 		
-		parrot & → giraf-component, oasis-lib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\
+		pictoreader & → giraf-component, dblib, local-db, pictogram-lib, catagory-lib, Ambilwarna\\
 		
 	\end{tabularx}
 	\label{Table_dependencies_applib}
@@ -86,9 +86,9 @@ From this information we made a list of all the libraries the apps are dependent
 % Text to footnote in tabular
 \footnotetext{Opens through tortoise}
 
-As can be seen in the list of dependencies, all the apps were dependent on ‘giraf-component’, ‘oasis-lib’, and ‘local-db’. In addition to this there are a lot of the apps that are dependent on ‘pictogram-lib’. 
+As can be seen in the list of dependencies, all the apps were dependent on ‘giraf-component’, ‘dblib’, and ‘local-db’. In addition to this there are a lot of the apps that are dependent on ‘pictogram-lib’. 
 
-To get a better overview of the dependencies we made a graph see Figure \ref{AppLibependencies} below. On the graph the squares represent apps and the ovals libraries. An arrow from A to B signifies that A is dependent on B. Because there are a lot of dependencies between the apps and libraries, we decided to exclude ‘giraf-component’, ‘oasis-lib’, and ‘local-db’ from the graph. This meant that the graph was a lot easier to read, and because all apps where dependent on those apps, we could just add a short note about the dependency.
+To get a better overview of the dependencies we made a graph see Figure \ref{AppLibependencies} below. On the graph the squares represent apps and the ovals libraries. An arrow from A to B signifies that A is dependent on B. Because there are a lot of dependencies between the apps and libraries, we decided to exclude ‘giraf-component’, ‘dblib’, and ‘local-db’ from the graph. This meant that the graph was a lot easier to read, and because all apps where dependent on those apps, we could just add a short note about the dependency.
 
 
 \begin{figure}[H]
@@ -107,17 +107,17 @@ After having made all the library dependencies for the apps we did the same proc
 	\begin{tabularx}{\textwidth}{>{\raggedright}Xp{0.75\textwidth}p{0.25\textwidth}}
 		\textbf{Libs} & \textbf{Dependencies}\\ \hline \noalign{\vskip 2mm}
 		
-		giraf-component & → oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		giraf-component & → dblib, local-db\\ \noalign{\vskip 2mm}
 		
-		oasis-lib & → local-db\\ \noalign{\vskip 2mm}
+		dblib & → local-db\\ \noalign{\vskip 2mm}
 		
-		pictogram-lib & → giraf-component, oasis-lib, local-db\\ \noalign{\vskip 2mm}
+		pictogram-lib & → giraf-component, dblib, local-db\\ \noalign{\vskip 2mm}
 		
-		sequence-viewer & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		sequence-viewer & → giraf-component, dblib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
 		
 		local-db & → metadata\\ \noalign{\vskip 2mm}
 		
-		category-lib  & → giraf-component, oasis-lib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
+		category-lib  & → giraf-component, dblib, local-db, pictogram-lib\\ \noalign{\vskip 2mm}
 		
 		Drawlib & → NULL\\ \noalign{\vskip 2mm}
 		
