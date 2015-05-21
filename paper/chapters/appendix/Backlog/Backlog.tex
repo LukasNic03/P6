@@ -1,21 +1,19 @@
-\input{paper/preamble_ida12.tex}
-
-\begin{document}
-
-\chapter{Backlogs} \label{app:product-backlog}
-This is a full list of GUI related user stories, including both finished user stories (Release Backlogs) and user stories we have not worked on in this semester (Product Backlog). 
+%\input{preamble_ida12}	- For standalone use
+%\begin{document}		- Change section to Chapter
+\section{Backlog}\label{Appendix_secBacklog}
+This is a full list of user stories, including both finished user stories, the Release Backlog, and user stories we have not worked on in this semester, Product Backlog.
 
 A user story is released when it have a working version. In the beginning of the project there was implemented a lot of the features from the user stories, but many of them was not able to run.
 
-Some times new user stories is made later on which look like the old, if it is decided they need to be worked on again.
+Sometimes new user stories are added which are duplicates of old finished user stories. That happens when it is decided they need to be worked on again.
 
-Each user story consist of a title, a priority from 1-5 where 1 is most important, and the story. If the priority there is a hyphen, ´´-''.
-Furthermore the user stories is categorized.
+Each user story consist of a title, a priority from 1-5 where 1 is most important, and the story. If the priority contains a hyphen, ´´-'', instead of a number then it hasn't been prioritized yet.
+Furthermore the user stories are categorized to some extent.
 
-The format of the user stories is: \\
-``As a (end user), I want to (some goal) so that (some reason)'' \citep{agile-topics}.
+The format of the user stories are as follows: \\
+``As a (end user), I want to (some goal) so that (some reason)''.
 
-In the user stories there is used different kinds of users:
+In the user stories there are different kinds of users used:
 \begin{description}
 	\item [Developer] People who work on the development of the GIRAF, both current and future developers.
 	\item [Citizen] Children, adults, and elders with an autism spectrum disorder or other developmental disabilities.
@@ -23,9 +21,12 @@ In the user stories there is used different kinds of users:
 	\item [User] All kind of users of GIRAF.
 \end{description}
 
-\section{Product Backlog} \fxnote{Gennemgå i tilføj GUI developer stories} \fxnote{Opdatere enumurater start numre}
+\section{Product Backlog}
 This section includes all user stories there is not finished.
-\subsection{General} \fxnote{Gennemgå alle de generelle på et møde med GUI grupper, så vi kan vurdere om de er færdige.}
+
+\subsection{GUI}
+
+\subsubsection{General}
 These user stories should have an impact on all the applications.
 
 \begin{enumerate}
@@ -73,13 +74,22 @@ These user stories should have an impact on all the applications.
 	
 	\item \textbf{Generalising (5)}\\
 	As a developer I want the code re-factored, such that similar methods are generalised across applications.
+	
+	\item \textbf{Use new libraries (1)}\\
+	As a developer i want, all applications to use the new versions of libraries, so everything is up do date and using the newest components.
+	
+	\item \textbf{No GComponents (1)}\\
+	As a developer, I would like applications to not use GComponents any more, so the old components can be removed from the code.
+	
+	\item \textbf{Screen scaling (5)}\\
+	As a user I want the system to work on tablets of different sizes, ranging from 7” - 10” in size, so i can use GIRAF~ on normal sized tablets.
 \end{enumerate}
 
-\subsection{Launcher}
+\subsubsection{Launcher}
 The launcher is the home screen of the GIRAF~ system. From here, the GIRAF- and Android applications can be placed, and easily opened. These user stories are specific for the Launcher.
 
 \begin{enumerate}
-	\setcounter{enumi}{15} % Give number of the previous number
+	\setcounter{enumi}{18} % Give number of the previous number
 	\item \textbf{Set passwords (4)} \\
 	As a guardian I want to set the password to different types (pin-code, swipe a pattern or QR code), and be able to turn these on and off for citizens, as citizens above 18 years old should not be restricted access, whereas citizens younger than 18 should be restricted. 
 	
@@ -87,11 +97,11 @@ The launcher is the home screen of the GIRAF~ system. From here, the GIRAF- and 
 	As a user i want an error message if there is no Internet, and the GIRAF~ is trying to download data. When there is a Internet connecting, i should start download data. This ensures i do not have to wait for download, when it is not working.
 \end{enumerate}
 
-\subsection{Profiles}
+\subsubsection{Profiles}
 These user stories describes how the profiles are used. 
 
 \begin{enumerate}
-	\setcounter{enumi}{17} % Give number of the previous number
+	\setcounter{enumi}{20} % Give number of the previous number
 	\item \textbf{Profile breakdown (2) }\\
 	As a guardian I want to find the group i am working with, as i then can find the citizen I am helping, with a few clicks. If no group is chosen, then the citizens should be listed alphabetically. 
 	
@@ -99,11 +109,11 @@ These user stories describes how the profiles are used.
 	As a guardian I want to be able to save settings for one or multiple citizens, and be able to copy these settings from a citizen to another, making it easier to make settings. The settings should include game settings, week schedules, sequences, pictograms and categories.
 \end{enumerate}
 
-\subsection{Pictosearch}
+\subsubsection{Pictosearch}
 Pictosearch is the application used to find pictograms. This is used whenever the possibility of searching exist. Pictosearch can provide a list of pictograms and categories. These user stories relevant for the searching.
 
 \begin{enumerate}
-	\setcounter{enumi}{19} % Give number of the previous number
+	\setcounter{enumi}{22} % Give number of the previous number
 	\item \textbf{Searching strategies (1)}\\
 	As a developer, i want to improve the searching functionality by implementing a more effective searching strategy, so I can see the search results quicker. The searching strategy should be well documented.
 	
@@ -114,11 +124,11 @@ Pictosearch is the application used to find pictograms. This is used whenever th
 	As a guardian, I want to be able to find the private pictograms associated with the current citizen, so I can use them for things like sequences specific to that citizen.
 \end{enumerate}
 
-\subsection{Week Schedule}
+\subsubsection{Week Schedule}
 Week Schedule is used to show the citizens the plan for their week or day. These user stories is covering the features wanted in Week Schedule.
 
 \begin{enumerate}
-	\setcounter{enumi}{22} % Give number of the previous number
+	\setcounter{enumi}{25} % Give number of the previous number
 	\item \textbf{Refer to the sequence application (3)}\\
 	As a citizen, when I click on an activity, it should lead to a saved sequence, so I can get a visual description of how to do the activity. I want that it is visible whether or not the activity has this feature.
 	
@@ -129,11 +139,11 @@ Week Schedule is used to show the citizens the plan for their week or day. These
 	As a guardian I want to copy entire weeks and single days, from one citizen to another, because many of the weeks and dags has some similarities, and this would ease the work of creating schedules. 
 \end{enumerate}
 
-\subsection{Sequence}
+\subsubsection{Sequence}
 Sequence is used to create a series of pictograms, that is used to describe how an activity should be done. The citizens can then see these sequences when performing the activity. These user stories is for features in sequence.
 
 \begin{enumerate}
-	\setcounter{enumi}{25} % Give number of the previous number
+	\setcounter{enumi}{28} % Give number of the previous number
 	\item \textbf{Email sequences (2)}\\
 	As a guardian I want to email sequences, so I can print them, and use them without GIRAF.
 	
@@ -153,11 +163,11 @@ Sequence is used to create a series of pictograms, that is used to describe how 
 	As a citizen I want to create sequence myself, because the guardian think I can manage this. 
 \end{enumerate}
 
-\subsection{Picto Creator}
+\subsubsection{Picto Creator}
 The Picto Creator is a drawing app, that can be used to create and edit pictograms. It is possible to use the camera and microphone when creating these. These user stories is for Picto Creator.
 
 \begin{enumerate}
-	\setcounter{enumi}{31} % Give number of the previous number
+	\setcounter{enumi}{34} % Give number of the previous number
 	\item \textbf{Delete a pictogram (4)}\\
 	As a guardian I want to delete a pictogram from the system, if a citizen does not need it, or if it gives bad memories.
 	
@@ -165,14 +175,14 @@ The Picto Creator is a drawing app, that can be used to create and edit pictogra
 	As a guardian I want to choose whether a pictogram should replace an earlier version or create a new pictogram with a new name, as this choice varies.
 \end{enumerate}
 
-\subsection{Category Tool}
+\subsubsection{Category Tool}
 The Category Tool is used to create, edit and delete categories of pictograms. Categories makes it easier to find and use pictograms in the other applications. There is no more user stories for this application.
 
-\subsection{Picto Reader}
+\subsubsection{Picto Reader}
 Picto Reader is an application used by citizens, making them able to create a series of pictograms, that can be read aloud or shown to guardian. The application is used to communicate. These user stories is relevant in Picto Reader.
 
 \begin{enumerate}
-	\setcounter{enumi}{33} % Give number of the previous number
+	\setcounter{enumi}{36} % Give number of the previous number
 	\item \textbf{Sentence construction (2)}\\
 	As a citizen I want to construct sentences with pictograms, for instance [I would like] or [I] [would] [like], because I want to learn to talk using sentences.
 	
@@ -183,11 +193,11 @@ Picto Reader is an application used by citizens, making them able to create a se
 	As a citizen, I would like to be informed that the application is loading a newly chosen category, so i know something happens.
 \end{enumerate}
 
-\subsection{Timer}
+\subsubsection{Timer}
 The Timer application can display a timer in the other applications. This is used to restrict how much time a citizen can use the tablet or chosen application. These user stories covers the features needed in the Timer.
 
 \begin{enumerate}
-	\setcounter{enumi}{36} % Give number of the previous number
+	\setcounter{enumi}{39} % Give number of the previous number
 	\item \textbf{Pause (3)}\\
 	As a guardian I want to pause the timer when a citizen is not doing the given task, to be sure that the allocated amount of time is being used on the agreed activity, for instance sitting at the table.
 	
@@ -201,11 +211,11 @@ The Timer application can display a timer in the other applications. This is use
 	As a guardian I often use 3, 5, 10, 15 and 20 minutes in the timer, so they should be defined per default, such that they can be used faster.
 \end{enumerate}
 
-\subsection{Life Stories}
+\subsubsection{Life Stories}
 Life Stories can be used to create sequences of a certain activity, e.g. going to the fair. This can be used to show the things they have done. These user stories covers features in Life Stories.
 
 \begin{enumerate}
-	\setcounter{enumi}{40} % Give number of the previous number
+	\setcounter{enumi}{43} % Give number of the previous number
 	\item \textbf{At the end of the day: Citizen (5)}\\
 	As a citizen I want to explain my day through pictograms, because I can use this to support me when telling others about it.
 	
@@ -213,29 +223,29 @@ Life Stories can be used to create sequences of a certain activity, e.g. going t
 	As a guardian I want to add text and sound to life stories. This will help the user remembering the specifics about the current life story.
 \end{enumerate}
 
-\subsection{Category Game}
+\subsubsection{Category Game}
 The Category game is about a train, where the pictograms of some categories are at the first station, and must be moved to the correct station. This is the relevant user stories.
 
 \begin{enumerate}
-	\setcounter{enumi}{42} % Give number of the previous number
+	\setcounter{enumi}{45} % Give number of the previous number
 	\item \textbf{Instructions (3)}\\
 	As a citizen I want a short introduction to the game so that I know how it works without help from a guardian.
 \end{enumerate}
 
-\subsection{Voice Game}
+\subsubsection{Voice Game}
 Voice game is about changing lanes with a car, where the car is controlled by the users voice. The user is supposed to pick up/avoid object along the way.
 
 \begin{enumerate}
-	\setcounter{enumi}{43} % Give number of the previous number
+	\setcounter{enumi}{46} % Give number of the previous number
 	\item \textbf{Standard games (5)}\\
 	As a guardian I want to have default games for practising high and low voice control, so I can quickly set up the needed game.
 \end{enumerate}
 
-\subsection{Administration}
+\subsubsection{Administration}
 The Administration app is used to create, edit and delete users.
 
 \begin{enumerate}
-	\setcounter{enumi}{44} % Give number of the previous number
+	\setcounter{enumi}{47} % Give number of the previous number
 	\item \textbf{Backup (2)}\\
 	As a guardian I want to be able to take a backup of personal pictograms, categories, sequences, and weekly schedules, as these might be useful later. 
 	
@@ -243,11 +253,11 @@ The Administration app is used to create, edit and delete users.
 	As a guardian in an institution I want to create new guardians and edit the current guardians in my institution, as new people might be hired in an institution or information about guardians might change.
 \end{enumerate}
 
-\subsection{Web Administration}
+\subsubsection{Web Administration}
 Web version of administration app, but with additional features.
 
 \begin{enumerate}
-	\setcounter{enumi}{46} % Give number of the previous number
+	\setcounter{enumi}{49} % Give number of the previous number
 	\item \textbf{Administrate profiles (1)}\\
 	As a guardian I want to administrate the citizen profiles from a homepage, such that I am not limited to using a tablet for doing this. 
 \end{enumerate}
@@ -255,6 +265,7 @@ Web version of administration app, but with additional features.
 \subsection{Database}
 
 \begin{enumerate}
+	\setcounter{enumi}{50} % Give number of the previous number
 	\item \textbf{Should be able to track synchronization result(2)}\\
 	As a guardian, I would like to be able to check the synchronization status, so I can see if I have unsaved changes, and when I last synchronized.
 	
@@ -265,7 +276,7 @@ Web version of administration app, but with additional features.
 	As a guardian I would like to be able to manually initialize a synchronization, so I can upload / download changes if they have not been synchronized automatically. 
 	
 	\item \textbf{DB component usability (5)}\\
-	As a B\&D or GUI developer I would like for the DB components to be easy to use, so I can abstract away from the db structure when I write new apps. 
+	As a developer I would like for the DB components to be easy to use, so I can abstract away from the db structure when I write new apps. 
 	
 	\item \textbf{Security (4)}\\
 	As a user I would like my confidential data to be secure and for the app to adhere to all laws, so I can safely use the GIRAF app.
@@ -318,18 +329,20 @@ Web version of administration app, but with additional features.
 
 \subsection{Build and Deploy}
 
-\subsection{Structural Changes}
+\subsubsection{Structural Changes}
 These user stories are related to the overall structure of the project.
 
 \begin{enumerate}
+	\setcounter{enumi}{70} % Give number of the previous number
 	\item \textbf{Replace Redmine with another tool (4)}\\
 	As a developer I would want to use another tool instead of Redmine so that i could get a more reliable organization tool as the handling of user stories on Redmine is clumsy and is therefore not used by the majority.
 \end{enumerate}
 
-\subsection{Server}
+\subsubsection{Server}
 These user stories should have an impact on the server or be strongly related to server work.
 
 \begin{enumerate}
+	\setcounter{enumi}{71} % Give number of the previous number
 	\item \textbf{Acquire faster servers (3)} \\
 	As a developer I would like the servers to be faster, so I do not need to wait too long for Jenkins to build my newest release as others could be waiting for the new release.
 	
@@ -337,10 +350,11 @@ These user stories should have an impact on the server or be strongly related to
 	As a developer I would like the server to follow the security standards set by the Government, so that the server can be moved to a server run by the Government.
 \end{enumerate}
 
-\subsection{Jenkins}
+\subsubsection{Jenkins}
 These user stories should be related to Jenkins and any work done on Jenkins.
 
 \begin{enumerate}
+	\setcounter{enumi}{73} % Give number of the previous number
 	\item \textbf{Monkey testing screen-capture from last failure (2)}\\
 	As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened. 
 	
@@ -349,44 +363,52 @@ These user stories should be related to Jenkins and any work done on Jenkins.
 	
 	\item \textbf{Safely disconnecting tablets from testing pool (-)}\\
 	As a developer I would like to be able to disconnect my tablet from the testing pool safely, without breaking a build on Jenkins.
+	
+	\item \textbf{Jenkins Configuration Backup}
+	As a developer I want to have a backup of the Jenkins configuration so that it can be restored in case of failure. It must be stored on another machine than the server.
 \end{enumerate}
 
-\subsection{Build Release}
+\subsubsection{Build Release}
 These user stories should be related to the build release of GIRAF.
 
 \begin{enumerate}
+	\setcounter{enumi}{77} % Give number of the previous number
 	\item \textbf{Make a package for download on Google Play}\\
 	As a customer I would like to have a package available on Google Play that would allow me to download just one thing that would install all needed parts for the Giraf-project, so I do not have to download them all individually.
 \end{enumerate}
 
-\subsection{Documentation}
+\subsubsection{Documentation}
 These user stories should be related to the documentation of GIRAF.
 
 \begin{enumerate}
+	\setcounter{enumi}{78} % Give number of the previous number
 	\item \textbf{Update and extend descriptions of apps and libraries (2)}\\
 	As a customer and as a developer I would like to have better and more up-to-date descriptions of every app. This should be in some commonly shared place and on Google Play.
 \end{enumerate}
 
-\subsection{Stand-Alone apps}
+\subsubsection{Stand-Alone apps}
 These user stories should be related to the stand-alone concept.
 
 \begin{enumerate}
+	\setcounter{enumi}{79} % Give number of the previous number
 	\item \textbf{Stand-Alone: Core package (5)}\\
 	As a customer I would like the apps to be stand-alone so that i don't have to install any additional app to get one specific app working.
 \end{enumerate}
 
-\subsection{Git}
+\subsubsection{Git}
 These user stories should be related to the Git-repositories.
 
 \begin{enumerate}
+	\setcounter{enumi}{80} % Give number of the previous number
 	\item \textbf{Set up major and minor tags on Git (2)}\\
 	As a developer I would like to be able to quickly and easily revert to a previous state of the development using tags for every major and minor release.
 \end{enumerate}
 
-\subsection{Analysis}
+\subsubsection{Analysis}
 These user stories should be related to analysis of potential new ideas for GIRAF.
 
 \begin{enumerate}
+	\setcounter{enumi}{81} % Give number of the previous number
 	\item \textbf{Future technology analysis (5)}\\
 	As semester coordinator I would like to know which future technologies could be useful in the project’s future.
 \end{enumerate}
@@ -429,6 +451,7 @@ This section includes all user stories from the release from Sprint 1.
 \subsection{Database}
 
 \begin{enumerate}
+	\setcounter{enumi}{9} % Give number of the previous number
 	\item \textbf{Unit Testing of DB-lib(1)}\\
 	As a developer I want DB-lib to be thoroughly unit tested to ensure functionality when code is changed in DB-lib.
 	
@@ -445,6 +468,7 @@ This section includes all user stories from the release from Sprint 1.
 \subsection{Build and Deploy}
 
 \begin{enumerate}
+	\setcounter{enumi}{13} % Give number of the previous number
 	\item \textbf{Setting up server}\\
 	As a developer
 	
@@ -506,6 +530,7 @@ This section includes all user stories from the release from Sprint 2.
 \subsection{Database}
 
 \begin{enumerate}
+	\setcounter{enumi}{8} % Give number of the previous number
 	\item \textbf{One Way Compatibility Between Remote and Local DB(1)}\\
 	As a developer I want to be able to save everything in remote that i am able to save in local to avoid database errors.
 	
@@ -519,17 +544,18 @@ This section includes all user stories from the release from Sprint 2.
 \subsection{Build and Deploy}
 
 \begin{enumerate}
+	\setcounter{enumi}{11} % Give number of the previous number
 	\item \textbf{Binaries instead of submodules}\\
 	As a developer I would like to use binary files in the project so that i do not have to use submodules on the git repositories.
 	
 	\item \textbf{Snapshots of database/Backups}\\
-	As a developer
+	As a developer I would like to have snapshots of the database, so less data is lost in the event of a server crash.
 	
 	\item \textbf{SMTP setup}\\
 	As a developer I would like to have access to a central mailing system that can automatically notify me of changes, so that I can easily and without effort on my part stay up to date.
 	
 	\item \textbf{Logging}\\
-	As a developer
+	As a developer I would like to have logging for the database so that the server follows the requirement set by the Government.
 	
 	\item \textbf{Gitlab for the server/GOG}\\
 	As a developer I would like to have access to a server-side Git-interface, so that it would be easier to use Git.
@@ -615,6 +641,7 @@ This section includes all user stories from the release from Sprint 3.
 \subsection{Database}
 
 \begin{enumerate}
+	\setcounter{enumi}{17} % Give number of the previous number
 	\item \textbf{Save game settings(4)}\\
 	As a guardian i would like to save settings for the category-game, so that it can be used another time without setting it up.
 	
@@ -625,13 +652,13 @@ This section includes all user stories from the release from Sprint 3.
 	As a developer i want to be able to save a users settings in his profile in LocalDB so they are available next time he log in.
 	
 	\item \textbf{Change id datatypes(2)}\\
-	As a GUI developer I would like all ids returned by the DB components to be longs, so that it conforms with the Android standards and I do not have to cast them every time.
+	As a developer I would like all ids returned by the DB components to be longs, so that it conforms with the Android standards and I do not have to cast them every time.
 	
 	\item \textbf{Naming of apps(1)}\\
 	As a B\&D developer I would like all apps to be consistent in the naming they use, so I can more easily publish apps to google play and so I don not have to know which names correspond to which. 
 	
 	\item \textbf{Status for large queries(2)}\\
-	As a GUI developer i would like to be able to get information of the status when doing larger queries, so that it can be used to notify a user of the app.
+	As a developer i would like to be able to get information of the status when doing larger queries, so that it can be used to notify a user of the app.
 	
 	\item \textbf{Profiles divided into organizations(1)}\\
 	As a guardian I would like to divide my department into groups, so I can then view citizens based on a defined subcategorization, e.g. Blue room and Red room.
@@ -655,7 +682,7 @@ This section includes all user stories from the release from Sprint 3.
 	As a guardian I would like to be able to save the weekly schedule for citizens so I can have multiple weeks saved for each citizen.
 	
 	\item \textbf{Tags as attributes of pictograms(1)}\\
-	As a GUI developer group I would like the tags of a pictogram to be available as an attribute of a picogram when it is sent to my app. 
+	As a developer group I would like the tags of a pictogram to be available as an attribute of a picogram when it is sent to my app. 
 	
 	\item \textbf{Feedback regarding connection(2)}\\
 	As a guardian I would like to be informed if internet connection is unavailable during initial load, so I do not wait forever.
@@ -664,6 +691,7 @@ This section includes all user stories from the release from Sprint 3.
 \subsection{Build and Deploy}
 
 \begin{enumerate}
+	\setcounter{enumi}{32} % Give number of the previous number
 	\item \textbf{Logging}\\
 	As a developer I would like to have logging for the database so that the server follows the requirement set by the Government.
 	
@@ -698,6 +726,7 @@ This section includes all user stories from the release from Sprint 4.
 \subsection{GUI}
 
 \begin{enumerate}
+	\setcounter{enumi}{0} % Give number of the previous number
 	\item \textbf{Update design document (1)}\\
 	As a developer i want the design document to be updated with all the design decisions, so it becomes easy to make a consistent design.
 	
@@ -776,31 +805,22 @@ This section includes all user stories from the release from Sprint 4.
 	\item \textbf{Library (1)}
 	As a user i want Pictosearch to be a library used by the other applications, so i do not need to install it as a separate application.
 	
-	\fxnote{I think the following is done}
 	\item \textbf{Screen size (1)}\\
 	As a user I want the GIRAF~ applications to work on a 10” screen, as this is the tablet size we use.
 	
 	\item \textbf{App naming must be consistent (2)}\\
 	As a user i want the names of all applications to be meaningful, and consistent throughout the system, so i know which application there is referred to.
-	
-	\item \textbf{Use new libraries (1)}\\
-	As a developer i want, all applications to use the new versions of libraries, so everything is up do date and using the newest components.
-	
-	\item \textbf{No GComponents (1)}\\
-	As a developer, I would like applications to not use GComponents any more, so the old components can be removed from the code.
-	
-	\item \textbf{Screen scaling (5)}\\
-	As a user I want the system to work on tablets of different sizes, ranging from 7” - 10” in size, so i can use GIRAF~ on normal sized tablets.
 \end{enumerate}
 
 \subsection{Database}
 
-\begin{enumerate}	
+\begin{enumerate}
+	\setcounter{enumi}{28} % Give number of the previous number
 	\item \textbf{Synchronize Automatically(1)}\\
 	As a guardian I would like that my data is accessible on any tablet when logged in, so that I can switch tablet without noticing a difference.
 	
 	\item \textbf{Database Namespace(1)}\\
-	We as a GUI group would like the database namespace to match the name of the applications. 
+	As a developer I would like the database namespace to match the name of the applications. 
 	
 	\item \textbf{Department-wide Save of Pictograms(2)}\\
 	As a guardian, I would like to save pictograms, categories, and sequences at the various administrative levels of my department, so I can reuse these when I set up profiles.
@@ -812,6 +832,7 @@ This section includes all user stories from the release from Sprint 4.
 \subsection{Build and Deploy}
 
 \begin{enumerate}
+	\setcounter{enumi}{32} % Give number of the previous number
 	\item \textbf{Ensure App Name Consistency}\\
 	As a developer I would like all the references to an app and library to use the same name so that it is easier to follow and understand which apps are referenced when reading a name. All names on git, jenkins, and google play should be consistent.
 	
@@ -850,5 +871,4 @@ This section includes all user stories from the release from Sprint 4.
 	\item \textbf{One combined place/report with all relevant information}\\
 	As a future developer I would like for all relevant information to be available in one place whether this is a report or some other place I have access to, in order to have an easier time getting in to the project. All relevant information is on giraf.cs.aau.dk.
 \end{enumerate}
-
-\end{document}
+%\end{document} - For standalone use
