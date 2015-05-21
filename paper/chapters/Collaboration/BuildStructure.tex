@@ -1,0 +1,18 @@
+\section{Build Structure collaboration}
+\textit{When we made AAR files a part of the Giraf build structure, a number of groups were involved. This section will describe the contribution from the other groups to ensure that the build structure were implemented to the one described in section x.x}
+
+The structure of the Giraf project where changed on 3 fronts. The first was to make some of the libraries into binary files, the second was to remove recursion from the Git repository, and the third was to build and deploy the build libraries to an repository. These 3 fronts were divided between group 5, 8, and 9. 
+
+\subsection{Make libraries to binary files}
+If an project in a Git repository needed any content from another library, the library was recursively included in the repository and when the project was build this recursion also occurred. To avoid having to download all the repositories for the libraries used in the project, it was decided to make use of binary files for the libraries which then should be on a Maven repository from which the apps get the libraries they are dependent on. The binary file-type the libraries were made into was .aar files, which is a file-type provided by Android Studio, which works like a .jar file, with the difference that it also includes resources such as graphics.
+
+It was our responsibility to test how to make libraries into binary files and also to find which libraries that should be implemented in which apps. This is described in Section x.x (Dependencies).
+
+
+\subsection{Remove recursion from git repository}
+As group 8 were in charge of Git, they got the job of removing recursion from the git repository. They did this by restructuring the repositories so one repository only contains one project and not both the projects and all the libraries it depends on.
+
+\subsection{Build libs to repository}
+As group 9 were in charge of Jenkins, they got the job of making Jenkins build the library when a new version was pushed to Git. This was done as a collaboration between the Git and Jenkins groups. When Jenkins builds a library it is then uploaded to a Maven repository.
+
+A Maven repository was used as storage for the built libraries, because Gradle, which is the build tool Android Studio uses to build projects, is able to use the Maven plugin. The Maven plugin allows projects to easily implement libraries, by simply asking for the libraries from Maven. The plugin downloads the implemented library on build time. This means that updated libraries can be used as a project without having to change any of the project's code. Maven also allows for backwards compatibility by using version numbers, which allows the individual projects to use the version of the libraries they need.
