@@ -1,0 +1,44 @@
+\chapter{Recommendations for next year}
+\textit{This section is written for the students that take over the project next year. The section contains some recommendations and suggestion that our group has for the next year students when continuing this project.}
+
+\section{Issue handling tool}
+At the start of the semester we used a issue handling tool from Redmine, but as no one was using it and because it required too much effort to use, we started using Google Docs as an emergency solution. For the next year we would recommend that a new and better tool in found, so that issue handling becomes easier and faster to use, especially when used for sprint planning.
+
+\section{Renaming}
+This year we renamed several apps to have more meaningful names in order to make it easier to understand what an app was supposed to do. The process used was tedious, and we do not advise any unnecessary renaming. That being said there are some issues with the current naming, which we will present here.
+
+\subsection{Categorygame}
+The categorygame current visible on Google Play is the version using the wrong package-name of ?train?. The correct version has been uploaded to Google Play, and any push to Jenkins on categorygame will upload the alpha-version to the correct version on Play, but that version will crash on startup, because the library metadata is referring to ?train?. Fixing this in metadata will cause a cascade of fixes upwards, as then localDB would have to be changed to build from the new version of metadata, then dbLib would have to refer to the new versions of localDB and metadata, before the change can be implemented in categorygame itself.
+
+\subsection{Various other problems}
+Ugeplan is named in danish, and could be changed to follow the english names of the other apps.
+Some of the names on Git have not been changed, which could and should be done early.
+The Maven repository has not been completely renamed, as only a few libraries were renamed, but it should be done to keep consistency.
+
+\section{Core library}
+The idea of the Core library is to bypass the launcher, by having some of the launcher?s features available for other apps to use. Section x.x goes into detail about what these features are. The one major problem of having the core package is to handle data management. Description of what these problems are and ideas on how to solve them can be found in Section x.x.
+For the next year we would recommend that the next years developers look into whether they want to make to whole Giraf-project into one package, see section x.x. If the project becomes one package there will be no use for a core package. So it?s important to have to discussion about a combined package before trying to solve the Core library.  
+
+\section{Giraf Package}
+For the last sprint we were given the task to make one place from which all the apps could be downloaded. We found that the only way to do this would be to make all the apps in the project into libraries and then include them in the launcher and by that making the whole project into one app. As this would have taken a lot of time and would have affected many of the other groups, it was decided to postpone it to next year. It is therefore our recommendation that if it is decided to make this change, the change is made as early as possible in the semester.
+
+\section{User Story}
+To make user stories easier to write and understand a standard structure of how to formulate them were made. This formulation was ?As a {type of user}, I want {some goal} so that {some reason}?. This structure made it clear how the main part of the user story should look, but we later found that it needed a way for how to indicate what the constraints and conditions for satisfaction were. This meant that it in some cased was up to the group that had the user story to say, when the user story was done. We recommend that the next year students improve on our model by including a standard way of formulating the constrain and condition for satisfaction.
+
+\section{Backup}
+At the end of the semester there were some problems with a disk on the server that hosts the entire Giraf-project. This meant that there was half a week where the server was down. For the next year we would recommend the there is an external backup of all the code from git, in case something should happen to the server. This backup could be done at the end of each sprint. An idea for a backup solution would be to use Google Drive since there already is 15GB assigned to the Giraf Google account used in the project.(giraf@lists.aau.dk). 
+
+\section{Process}
+
+\subsection{Leadership}
+It is our experience that cooperation between students is inherently weak outside of their immediate vicinity as they will invariably focus on their own projects. Thus a structure is needed to help facilitate clear lines of communication and responsibility. Such a structure requires work, meetings, and oversight and there?s little so abhorred as work that produces no immediately obvious results.
+For this reason, we find it to be vital to find the best people for overseeing the process run by the project. 
+
+\subsection{Subprojects}
+For this semester, the project was divided into 3 subprojects B&D, DB, and GUI. At the start of the semester the number of groups was divided evenly over these subproject, but over the course of the semester some of the groups moved to the GUI subproject due to the excessive amount of user stories in GUI. Because of this we recommend that next year keeps the subprojects, but instead of having an evenly distribution of groups over the subprojects, have most of the groups in the GUI subproject.
+
+\subsection{Weekly meetings}
+Because the development method used in the project was scrum we had weekly meetings where we discussed what progress was made in the different subprojects and suggestions for changes. One thing our group noticed was that not many problems was taken to discussion at these meetings. We suspect that the reason for this is that in order for anything to be taken up, a person would have to interrupt the meeting to get his question brought up. Because of this we recommend that a suggestion box is made, where everyone can add notes with with questions which is then brought up at the meetings.
+
+\section{Server}
+Over the course of the semester the project has some trouble with the group which was responsible for the servers. The problem was that there often was very few of the members that was present at the university, due to most of them having a job beside the university. This meant that often when there was problems with the server it took a long time before the problem was fixed. We therefore recommend that for next year two groups are responsible for the server or at least make sure that the group responsible for the server is a group that always is at the university.
