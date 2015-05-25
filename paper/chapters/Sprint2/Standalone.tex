@@ -1,32 +1,28 @@
 \section{Standalone}
-\textit{The outside costumer showed some interest in having some apps available as standalone. This section focusses on our work in this area covering which features would be needed to make the existing apps standalone and our decision to make a core library.}
+\textit{The customer showed some interest in having some of the apps available as standalone. This section focuses on our work in this area covering which features would be needed to make the existing apps standalone, and our decision to make a core library.}
 
 \subsection{Motivation}
-Making the apps standalone would increase the usability of the individual apps, as the user would no longer need to install several different apps just to ensure that they can use the app they want. As seen in \ref{Sprint2_SecDependencies} all apps in Giraf are reliant on both the launcher and ‘PictoSearch’. This dependency is not only annoying for the user but is also causing trouble during the automatic tests, as one of the tests include installing the apps and testing them pseudo-randomly, but the emulation used for this test could not install more than one app at a time, which results in this test always failing on apps reliant on the launcher. The process of making the existing apps standalone will likely result in a solution that would also make it easier to make new apps standalone in the future.
+Making the apps standalone would increase the usability of the individual apps, as the user would no longer need to install several different apps just to ensure that they can use the app they want. As seen in Section \ref{Sprint2_SecDependencies} all apps in Giraf are reliant on both the launcher and ‘pictosearch’. This dependency was not only annoying for the user but was also causing trouble during the automatic tests, as one of the tests include installing the apps and testing them pseudo-randomly, but the emulation used for this test could not at the time install more than one app at a time, which resulted in this test always failing on apps reliant on the launcher.
 
 \subsection{Features}
-In order to make the individual existing apps standalone, we will first need to look at each app and find out which tasks the apps has to be able to perform when working standalone. For each app we will then describe the features that would enable them to become standalone apps. 
+In order to make the individual existing apps standalone, we first looked at each app and found out which tasks the apps had to be able to perform when working standalone. In the following section we describe which features that would enable an app to be standalone.
 
-\subsubsection{Zebra}
-Zebra is an app that allow the user to make sequences of pictograms, which is used for communication. In order to use the app, it needs access to a database with pictograms, and if the database has not be made by the launcher, Zebra has to be able to make a database and download the pictograms to that database. In order to allow the user to use personal pictograms, the app also need a login feature, so that the user can access these pictograms as well.
-\subsubsection{Croc}
-Croc is an app that enable the user to make personal pictograms using the camera, existing pictograms or from a blank canvas. Like Zebra, Croc needs to be able to access pictograms from a database, and since Croc’s works with personal pictograms it also need a login feature which enables the user to save the pictogram to a personal account.
+\subsubsection{Sequence}
+Sequence is an app that allow the user to make sequences of pictograms for use in communication. In order to use the app, it needs access to a database with pictograms, and if the database has not been made by the launcher, sequence has to be able to make a database and download the pictograms to the database itself. In order to allow the user to use personal pictograms, the app also need a login feature, so that the user can access these pictograms as well.
+
 \subsubsection{Other apps}
-Like Zebra and Croc many of the other apps that needs to be standalone, needs the ability to access pictograms and personal pictograms. Therefore we will not go into details with these apps.
+Like sequence many of the other apps that need to be standalone, need access to pictograms as well as personal pictograms. Therefore, we will not go into details with these apps. 
+
 \subsubsection{Overall necessities}
 So from this we have arrived to the following list of features the apps would need to work as standalone apps. 
 
-\textit{Login}:
-This features will allow the user to access personal pictograms and save pictograms to a personal account.
-\textit{Make Localdb}:
-This features has to check if a local database of pictogram has already been made by another app. If no local database has been found the app will then need to make it itself. 
-\textit{Download pictogram}:
-The download pictogram features has to download pictograms for the local database from the server. It also has to get personal pictograms for a user, if the user is logged in to an personal account.
+\textbf{Login}: This features will allow the user to access personal pictograms and save pictograms to a personal account.\\
+\textbf{Make Localdb}: This feature has to check if a local database of pictogram has already been made by another app. If no local database has been found the app will then need to make it itself.\\
+\textbf{Download pictogram}: This feature has to download pictograms for the local database from the server. It also has to get personal pictograms for the user, if the user is logged in to a personal account.
 
-
-\subsection{Standalone App or library}
-As all the apps need the features just mentioned, it would make sense to place them in a common place, either as an app or as a library. That way multiple apps could use the same code without having to rewrite the code in the individual apps. Additionally any new common features needed could be added to this app or library. In general this will be referred to as a core app or core library.
-In Table \ref{coreapp_corelib_comp} an overview is shown of the positive and negative aspects (pros and cons) of each solution. The two solutions were evaluated on how easy they would be for the user. This meant that the app-solution would be a bad solution because it would require the user to install another app in addition to the standalone app they wanted to use. The bigger size of the apps in the library-solution is regarded as a minor problem as currently the storage space for the pictograms used far outweighs the storage used by the installed apps.
+\subsection{Standalone app or library}
+As all the apps need the features just mentioned, it would make sense to place them in a common place, either as an app or as a library. That way multiple apps could use the same code without having to rewrite the code in the individual apps. Additionally any new common features needed could be added to this app or library. In general this will be referred to as the core app or core library.
+In Table \ref{coreapp_corelib_comp} an overview is shown of the positive and negative aspects (pros and cons) of each solution. The two solutions were evaluated on how easy they would be for the user. This meant that the app-solution would be a bad solution because it would require the user to install another app in addition to the standalone app they wanted to use. The bigger size of the apps in the library-solution is regarded as a minor problem as currently the storage space for the pictograms used far outweighs the storage used by the installed apps and Giraf in its entirety does not use a lot of space to start with.
 
 \begin{table}[H]
 	\centering
@@ -43,13 +39,12 @@ In Table \ref{coreapp_corelib_comp} an overview is shown of the positive and neg
 		
 		\hline \textbf{Other notes} & \textbf{Other notes}\\ \noalign{\vskip 2mm}
 		
-		\hline Fusion Core standalone and Pictosearch (only 1 ‘plugin’ app) & Make Pictosearch part of the core library
-		(no ‘plugin’ app)\\ \noalign{\vskip 2mm}
+		\hline Fuse core app and pictosearch (only one service app) & Make pictosearch a part of the core library
+		(no service app)\\ \noalign{\vskip 2mm}
 		\hline
-		
 	\end{tabularx}
-	\label{test}
-	\caption{List of apps and libraries}
+	\label{coreapp_corelib_comp}
+	\caption{Pros and cons of a core standalone app and a core standalone library}
 \end{table}
 
 %\subsection{User story for sprint 3}
