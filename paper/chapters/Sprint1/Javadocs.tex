@@ -1,9 +1,11 @@
 \section{Central Documentation} \label{Sprint1_SecJavadocs}
 \textit{This section goes over our central documentation user story, where we work on implementing a code comment generator to make code documentation easier.}
+
 As a part of the central documentation user story, we looked into how we could standardize documentation of the code for the project by using Javadoc to provide a clearer overall form of documentation.\\
 Javadoc is a plugin that automatically generates comments for coding blocks. In essence, it generates a comment stub automatically for a code block with a blank field space for all parameters. \citep{JavadocSource}
 
-The comments can then be automatically gathered and put in order into a html file which partly acts as code documentation.\\
+The comments can then be automatically gathered and put in order into a html file which partly acts as code documentation.
+
 \begin{figure}[H]
 	\begin{lstlisting}
 	/**
@@ -25,7 +27,6 @@ The comments can then be automatically gathered and put in order into a html fil
 	\caption{An example listing of how a javadoc should look. Note the double star at the beginning of the comment.}
 	\label{JavadocExample}
 \end{figure}
-
 The motivation for using a a Javadoc-like system was to improve the overall comment approach through standardization and ease of use. An added bonus is that it can provide code documentation on the project as a whole, which is a challenge under normal circumstances.
 
 At the start of the project, Javadoc was partially fulfilling its role. It was used in some projects consistently, while in others, comments of any kind were missing.
