@@ -345,31 +345,44 @@ These user stories should have an impact on the server or be strongly related to
 	
 	\item \textbf{Security standards (5)} \\
 	As a developer I would like the server to follow the security standards set by the Government, so that the server can be moved to a server run by the Government.
+	
+	\item \textbf{Automatic update of scripts} \\
+	As a developer i want scripts on the server to be automatically updated when i make changes so that i don't have to do this manually.
 \end{enumerate}
 
 \subsubsection{Jenkins}
 These user stories should be related to Jenkins and any work done on Jenkins.
 
 \begin{enumerate}
-	\setcounter{enumi}{72} % Give number of the previous number
+	\setcounter{enumi}{73} % Give number of the previous number
 	\item \textbf{Monkey testing screen-capture from last failure (2)}\\
 	As a developer I would like to have screen-captures taken during the monkey test so that i can get feedback about where the failure happened. 
-	
-	\item \textbf{Add code style check to Jenkins (4)}\\
-	As a developer I would like to have Jenkins automatically check whether I follow the specified coding style, because it would allow me to focus on developing content rather than spending time on prettying my code.
 	
 	\item \textbf{Safely disconnecting tablets from testing pool (-)}\\
 	As a developer I would like to be able to disconnect my tablet from the testing pool safely, without breaking a build on Jenkins.
 	
 	\item \textbf{Jenkins Configuration Backup}
 	As a developer I want to have a backup of the Jenkins configuration so that it can be restored in case of failure. It must be stored on another machine than the server.
+	
+	\item \textbf{Easy test of apps and libraries}
+	As a developer I want apps and libraries to be easily testable so that i can write tests.
+	
+	\item \textbf{Prevent push of snapshot version of libraries}
+	As a developer I want to be prevented from pushing snapshot versions of libraries so that i don't mistakingly do so.
+	
+	\item \textbf{Automatic notification of failed monkey test}
+	As a developer I want to be automatically notified of monkey test failure so that I an notified when my builds fail.
+	
+	\item \textbf{text}
+	As a developer I want emulator fallback if tablets disconnects in the middle of builds so that build jobs don't fail.
+	
 \end{enumerate}
 
 \subsubsection{Build Release}
 These user stories should be related to the build release of GIRAF.
 
 \begin{enumerate}
-	\setcounter{enumi}{76} % Give number of the previous number
+	\setcounter{enumi}{80} % Give number of the previous number
 	\item \textbf{Make a package for download on Google Play}\\
 	As a customer I would like to have a package available on Google Play that would allow me to download just one thing that would install all needed parts for the Giraf-project, so I do not have to download them all individually.
 \end{enumerate}
@@ -378,7 +391,7 @@ These user stories should be related to the build release of GIRAF.
 These user stories should be related to the documentation of GIRAF.
 
 \begin{enumerate}
-	\setcounter{enumi}{77} % Give number of the previous number
+	\setcounter{enumi}{82} % Give number of the previous number
 	\item \textbf{Update and extend descriptions of apps and libraries (2)}\\
 	As a customer and as a developer I would like to have better and more up-to-date descriptions of every app. This should be in some commonly shared place and on Google Play.
 \end{enumerate}
@@ -387,7 +400,7 @@ These user stories should be related to the documentation of GIRAF.
 These user stories should be related to the stand-alone concept.
 
 \begin{enumerate}
-	\setcounter{enumi}{78} % Give number of the previous number
+	\setcounter{enumi}{83} % Give number of the previous number
 	\item \textbf{Stand-Alone: Core package (5)}\\
 	As a customer I would like the apps to be stand-alone so that i don't have to install any additional app to get one specific app working.
 \end{enumerate}
@@ -396,7 +409,7 @@ These user stories should be related to the stand-alone concept.
 These user stories should be related to the Git-repositories.
 
 \begin{enumerate}
-	\setcounter{enumi}{79} % Give number of the previous number
+	\setcounter{enumi}{84} % Give number of the previous number
 	\item \textbf{Set up major and minor tags on Git (2)}\\
 	As a developer I would like to be able to quickly and easily revert to a previous state of the development using tags for every major and minor release.
 \end{enumerate}
@@ -405,7 +418,7 @@ These user stories should be related to the Git-repositories.
 These user stories should be related to analysis of potential new ideas for GIRAF.
 
 \begin{enumerate}
-	\setcounter{enumi}{80} % Give number of the previous number
+	\setcounter{enumi}{85} % Give number of the previous number
 	\item \textbf{Future technology analysis (5)}\\
 	As semester coordinator I would like to know which future technologies could be useful in the project’s future.
 \end{enumerate}
@@ -466,8 +479,6 @@ This section includes all user stories from the release from Sprint 1.
 
 \begin{enumerate}
 	\setcounter{enumi}{13} % Give number of the previous number
-	\item \textbf{Setting up server}\\
-	As a developer
 	
 	\item \textbf{Setting up Git}\\
 	As a developer I would like to have git up and running, so that I can access and share code for the apps in the project.
@@ -873,5 +884,8 @@ This section includes all user stories from the release from Sprint 4.
 	
 	\item \textbf{One combined place/report with all relevant information}\\
 	As a future developer I would like for all relevant information to be available in one place whether this is a report or some other place I have access to, in order to have an easier time getting in to the project. All relevant information is on giraf.cs.aau.dk.
+	
+	\item \textbf{Add code style check to Jenkins (4)}\\
+	As a developer I would like to have Jenkins automatically check whether I follow the specified coding style, because it would allow me to focus on developing content rather than spending time on prettying my code.
 \end{enumerate}
 %\end{document} - For standalone use
