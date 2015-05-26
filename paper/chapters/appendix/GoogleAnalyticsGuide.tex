@@ -1,0 +1,171 @@
+\chapter{Google Analytics Guide}
+\textbf{Info:} De fleste apps har fået tilføjet dette sidste år.
+
+\textbf{Info:} Der kan gå op til 24 timer før, dataen der bliver sendt fra enhederne til Google Analytics, er synlig på Google Analytics.
+
+\textbf{Info:} Følg denne guide fra top til bund!
+
+\subsection{Skaf adgang til data}
+\begin{enumerate}
+	\item Opret en task på redmine linket til Developer Story #1840 , navngivet "Google Analytics GRUPPENAVN".
+	\item I descriptionen skriver I den eller de google-konti som skal kunne se dataene. \textbf{Det er vigtigt at det er en google-konto, evt. kan I linke jeres aau-mail til en google-konto.}
+	\begin{enumerate}
+		\item Skriv evt. også hvilke specifikke apps I skal have adgang til.
+	\end{enumerate}
+	\item Når issuen er oprettet giver vi jer adgang så hurtigt som muligt.
+	\item Hvis der er yderligere spørgsmål til de data der er, så kontakt os (opret en issue eller stik hovedet ind af døren til 1.1.32).
+\end{enumerate}
+
+\subsection{Brugsguide:}
+\begin{enumerate}
+	\item Åben https://www.google.com/analytics/ og log ind med en google-konto med adgang til projektet.
+	\item Vælg tidsperiode der skal vises data for i øverste højre hjørne. Som standard er det den sidste måned.
+	\item Vælg hvilken app der skal vises detaljer på listen, ved at klikke på Alle mobilappdata under den enkelte app.
+	\item Du kan nu se en oversigt over brugen af app'en, men de vigtigste informationer ligger under Behaviour -> Crashes and Exceptions i venstre side. Adfærd -> Nedbrud og undtagelser hvis dit google er på dansk.
+	\item Under Exceptions kan du se om app'en er crashet inden for den valgte tidsperiode, hvis den er, kan du få detaljer om dem ved at klikke på Exception Description(Undtagelsesbeskrivelse) under graffen.
+\end{enumerate}
+
+\subsection{Tilføj SDK'en til projektet i Android Studio}
+\begin{enumerate}
+	\item I jeres projekt, opret en mappe libraries i roden af jeres projekt.
+	I Launcher projektet vil det se således ud C:\...\launcher\libraries
+	\item Download Google Analytics SDK'en her: libGoogleAnalyticsServices.jar here http://cs-cust06-int.cs.aau.dk/attachments/download/85
+	\item Placer libGoogleAnalyticsServices.jar i den nye mappe (libraries).
+	\item I Android Studio skulle den nye mappe samt sdk vises i project viewet. (Hvis ikke tryk CTRL+ALT+Y for at opdatere). Højreklik på libGoogleAnalyticsServices.jar og vælg Add As Library...
+	\item Vælg jeres "projekt module"(f.eks. launcher) og OK
+\end{enumerate}
+
+\subsection{Implementering af Google Analytics i projekt}
+Google Analytics er nemt at sætte op.
+Alt det kræver er at erklære permissions, og oprette en resource fil der beskriver opsætningen og hvilke data der skal logges. Endelig skal man tilføje en linje i onCreate() og onStop() i alle activities der ønskes logdata på.
+
+\textbf{Tilføj permissions}
+
+Tilføj følgende linjer til AndroidManifest.xml
+
+\begin{lstlisting}
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+\end{lstlisting}
+
+\textbf{Opret resource fil}
+
+\begin{enumerate}
+	\item Opret en ny resource fil i res/values der hedder analytics.xml (Det er vigtigt at denne fil får dette navn)
+	\item Kopier nedenstående til analytics.xml:
+	\begin{lstlisting}
+	<?xml version="1.0" encoding="utf-8" ?>
+	
+	<resources xmlns:tools="http://schemas.android.com/tools" 
+	tools:ignore="TypographyDashes">
+	
+	<!--Replace placeholder ID with your tracking ID-->
+	<string name="ga_trackingId">UA-XXXX-Y</string>
+	
+	<!--Enable automatic activity tracking-->
+	<bool name="ga_autoActivityTracking">true</bool>
+	
+	<!--Enable automatic exception tracking-->
+	<bool name="ga_reportUncaughtExceptions">true</bool>
+	
+	</resources>
+	\end{lstlisting}
+	\item Find jeres tracking id nederst på siden her.
+	\item Erstat placeholderen i analytics.xml (UA-XXXX-Y) med jeres tracking id.
+\end{enumerate}
+
+\textbf{Log activities}
+
+\textbf{INFO:} For det mest præcise data anbelfaler Google at man aktiverer Analytics i alle sine activities.
+
+For at logge activities skal der tilføjes to linjer i hver activity der skal logges.
+Dette er et eksempel taget fra Googles egen guide.
+
+\begin{lstlisting}
+package com.example.app;
+
+import android.app.Activity;
+
+import com.google.analytics.tracking.android.EasyTracker;
+
+/**
+ * An example Activity using Google Analytics and EasyTracker.
+ */
+	public class myTrackedActivity extends Activity {
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+ }
+
+ @Override
+ public void onStart() {
+	super.onStart();
+	... // The rest of your onStart() code.
+	EasyTracker.getInstance(this).activityStart(this);  // Add this method.
+ }
+
+ @Override
+ public void onStop() {
+	super.onStop();
+	... // The rest of your onStop() code.
+	EasyTracker.getInstance(this).activityStop(this);  // Add this method.
+ }
+}
+\end{lstlisting}
+
+\textbf{Exceptions (Optional)}
+
+Uncaught exceptions bliver automatisk send til Google Analytics ved at have sat ga_reportUncaughtExceptions til true i analytics.xml.
+Skulle nogen føle det nødvendigt at sende en catched exception så kan det opnås som i følgende eksempel
+
+\begin{lstlisting}
+ try {
+	// Noget kode som måske vil kaste en exception
+ } catch (Exception e){
+	// Sending the caught exception to Google Analytics
+	// May return null if EasyTracker has not yet been initialized with a
+	// property ID.
+	EasyTracker easyTracker = EasyTracker.getInstance(this);
+
+	// StandardExceptionParser is provided to help get meaningful Exception descriptions.
+	easyTracker.send(MapBuilder
+		.createException(new StandardExceptionParser(this, null)    // Context and optional collection of package names
+																	// to be used in reporting the exception.
+			.getDescription(Thread.currentThread().getName(),       // The name of the thread on which the exception occurred.
+						e),                                         // The exception.
+				false)                                              // False indicates a fatal exception
+		.build()
+	);
+
+	// Resten af exception håndteringen
+ }
+\end{lstlisting}
+
+\subsection{Når der debugges / Application afvikles i Emulator}
+Det kan være en fordel at at deaktivere Google Analytics når der debugges eller en implementation testes.
+
+Tilføj følgende til analytics.xml for at kunne kontrollere om der sendes data.
+
+\begin{lstlisting}
+<!--Enable debug mode - Useful when doing debugging and testing new implementation - true = do not send / false = send data -->
+<bool name="ga_dryRun">true</bool>
+\end{lstlisting}
+
+\subsection{Tracking ID}
+\begin{table}[h]
+	\begin{tabular}{ll}
+		\textbf{Application name} & \textbf{Tracking id}    \\
+		Launcher         & UA-48608499-1  \\
+		Voicegame        & UA-48608499-2  \\
+		Categorymanager  & UA-48608499-3  \\
+		Pictocreator     & UA-48608499-4  \\
+		Pictosearch      & UA-48608499-5  \\
+		Sequence         & UA-48608499-6  \\
+		Timer            & UA-48608499-7  \\
+		Lifestory        & UA-48608499-8  \\
+		Categorygame     & UA-48608499-9  \\
+		Ugeplan          & UA-48608499-10 \\
+		Administration   & UA-48608499-11 \\
+		Pictoreader      & UA-48608499-12
+	\end{tabular}
+\end{table}

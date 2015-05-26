@@ -1,0 +1,13 @@
+\chapter{How to implement the Pictosearch library}
+\begin{enumerate}
+	\item 
+	\begin{enumerate}
+		\item \textbf{add:}compile(group: 'dk.aau.cs.giraf', name: 'pictosearch', version: '2.0.6', ext: 'aar') to dependencies
+	\end{enumerate}
+	\item Update Intent
+	\begin{enumerate}
+		\item \textbf{add:} import dk.aau.cs.giraf.pictosearch.PictoAdminMain;
+		\item \textbf{replace:} intent.setComponent(new ComponentName("dk.aau.cs.giraf.pictosearch", "dk.aau.cs.giraf.pictosearch.PictoAdminMain"));
+		\item \textbf{with:} intent = new Intent(getApplication(), PictoAdminMain.class);
+	\end{enumerate}
+\end{enumerate}

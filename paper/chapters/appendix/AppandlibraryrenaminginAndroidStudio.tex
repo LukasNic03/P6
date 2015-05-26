@@ -1,0 +1,11 @@
+\chapter{App and library renaming in Android Studio}
+\begin{enumerate}
+	\item Open the app or library project in Android Studio
+	\item Under src --> main --> java the path shown is dk.aau.cs.giraf.CurrentName
+	\begin{enumerate}
+		\item Rightclick above path and under refactor click rename and change CurrentName to NewName.
+	\end{enumerate}
+	\item After renaming the above, press Ctrl+Shift+R (or Cmd+Shift+R on Mac) and search for giraf.CurrentName and replace it with giraf.NewName.
+	\item In case the app or library calls other apps or libraries that are being renamed, then do step 3 again for each case, replacing CurrentName and NewName with the ones from the app or library being called.
+	\item Commit the changes to Git and Jenkins will attempt to build it.
+\end{enumerate}
