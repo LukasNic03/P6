@@ -97,7 +97,7 @@ To get a better overview of the dependencies we made a graph, see Figure \ref{Ap
 
 
 \subsection{Cross library dependency}
-After having made all the library dependencies for the apps we did the same procedure for the libraries to find out which libraries were dependent on which library. As with the apps we started by looking at the Gradle build files for the libraries, and then made a list of the dependencies, which can be seen in Table \ref{Table_dependcies_liblib}.
+After having made all the library dependencies for the apps we did the same procedure for the libraries to find out which libraries were dependent on which library. As with the apps we started by looking at the Gradle build files for the libraries, and then made a list of the dependencies, which can be seen in Table \ref{Table_dependencies_liblib}.
 
 \begin{table}[H]
 	\centering
@@ -143,8 +143,8 @@ As with apps/library dependencies we also made a graph for cross dependency betw
 \end{figure}
 
 
-\subsection{Cross App dependencies}
-As the last step in finding the different dependencies we found the dependencies between the different apps. We did this in two ways, skimming through the code for any calls to other apps, and by trying to run the apps on a tablet and testing if any of the apps  stopped working if another app was not installed. From the dependencies we made a graph which is shown in Figure \ref{AppAppdependencies}. The arrows signify dependencies, but in addition this graph also have dotted and red lines. The dotted lines signifies that the app is not directly dependent, but instead dependent through another app and the red lines are dependencies we are uncertain about.
+\subsection{Cross app dependencies}
+As the last step in finding the different dependencies we found the dependencies between the different apps. We did this in two ways, skimming through the code for any calls to other apps, and by trying to run the apps on a tablet and testing if any of the apps  stopped working if another app was not installed. From the dependencies we made a graph which is shown in Figure \ref{AppAppdependencies}. The arrows signify dependencies, but in addition this graph also have dotted and red lines. The dotted lines signifies that the app is not directly dependent, but is instead dependent through another app.
 
 \begin{figure}[H]
 	\centering

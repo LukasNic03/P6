@@ -1,0 +1,38 @@
+\chapter{Android Studio Setup}
+
+\begin{enumerate}
+	\item Download and intall git from http://git-scm.com/
+	\item Download Android Studio 1.0.1 and install it http://tools.android.com/download/studio/canary/1-0-1
+	\begin{enumerate}
+		\item If you do not have Java JDK get it here http://www.oracle.com/technetwork/java/javase/downloads/index.html
+	\end{enumerate}
+	\item Download Stand alone SDK here http://developer.android.com/sdk/installing/index.html?pkg=tools
+	\item Open Android SDK Manager
+	\item Install these packages
+	\begin{enumerate}
+		\item Android SDK Tools
+		\item Android SDK Platform-tools
+		\item Android SDK Build-tools ver 19.0.1
+		\item Android API 15, 17 og 19
+		\item Android Support Repository
+		\item Android Support Library
+		\item Google USB Driver
+	\end{enumerate}
+	\item Dowloand gradle 2.2.1 here https://services.gradle.org/distributions/gradle-2.2.1-all.zip
+	\item Go to http://cs-cust06-int.cs.aau.dk/git, to see the list of projects you have access to, using your student login
+	\item In Android Studio, choose Check out from Version Control, using Git with path: http://cs-cust06-int.cs.aau.dk/git/{project-name}
+	\item Download a project thourgh AS using option git.
+	\item A good start could be the launcher
+	\item Point Projects Gradle to your downloaded gradle 2.2.1 folder, using local distribution Point Android Studio to installed SDK
+	\item In the project folder run (using CMD or Git Bash)
+	\begin{enumerate}
+		\item git pull
+	\end{enumerate}
+	\item From here you should be able to complete the import
+	\item The first time Android Studio start up the project, there could be some first-time processing, which could take quite a long time, like indexing. This will be a one-time only processing.
+	\item Try to compile a project
+\end{enumerate}
+
+\textbf{Troubleshooting; If you get error:}
+bad class file magic (cafebabe) or version (0034.0000)
+Solution: Make Sure you use Java JDK 7

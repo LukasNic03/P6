@@ -1,0 +1,52 @@
+\chapter{Javadocs}
+Javadocs is a comment generating tool. It should already be installed in your Android Studio Application and be ready for use. Most of it is auto-generated.
+
+Here is a link to the in-depth http://en.wikipedia.org/wiki/Javadoc
+
+Why do we use this? If used consistently, we can generate a html page with documentation for all of our code.
+
+If you wish to generate this html page for yourself, you can do this inside Android Studio in just seconds.
+
+\begin{enumerate}
+	\item Open the Android Studio Project
+	\item Open the tools menu in the bar
+	\item Pick 'Generate JavaDoc...'
+\end{enumerate}
+
+From here on you just have to specify details such as output folder and etc.
+
+\subsection{Guidelines}
+Javadocs should be used for all public functions and classes. The aim is to cover as much of the code as possible. However, it is not recommended that you go out of your way commenting code already written, unless you're refactoring.
+
+\textbf{How to use}
+
+A Javadoc comment is set off from code by standard multi-line comment tags /** and */. The opening tag has an extra asterisk, as in /**.
+
+Simply put this opening tag right above the code block in question, and Javadocs will auto-generate a comment-stub for the code block. Then you fill in the blanks.
+In short:
+
+\begin{enumerate}
+	\item Provide a short description of the functionality or role of the code block.
+	\item Elaborate on any parameters or otherwise auto-generated stubs made by Javadocs.
+\end{enumerate}
+
+\subsection{Javadocs Example}
+Self-explanatory comment example ripped from the official wiki page. Notice that a description longer than the initial short line isn't mandatory.
+
+\begin{lstlisting}
+/**
+ * Short one line description.                           (1)
+ * <p>
+ * Longer description. If there were any, it would be    [2]
+ * here.
+ * <p>
+ * And even more explanations to follow in consecutive
+ * paragraphs separated by HTML paragraph breaks.
+ *
+ * @param  variable Description text text text.          (3)
+ * @return Description text text text.
+ */
+ public int methodName (...) {
+	// method body with a return statement
+ }
+\end{lstlisting}
