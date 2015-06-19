@@ -1,0 +1,47 @@
+\documentclass[12pt,svgnames,]{beamer}
+\usepackage{etex} % Uncomment if shortage of latex registers
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{lmodern}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{caption}
+\usetheme{/amsterdam}
+\date{23. Juni 2015}
+\usepackage{listings}
+\lstset{literate=%
+{Ø}{{\O}}1
+{Å}{{\AA}}2
+{Æ}{{\AE}}2
+{ø}{{\o}}1
+{å}{{\aa}}2
+{æ}{{\ae}}2
+}
+\graphicspath{{pictures/}}
+
+\begin{document}
+\captionsetup[figure]{font=small,singlelinecheck=off,justification=raggedright}
+\title[Bachelor Project exam sw605f15]{GIRAF}
+\author[slide \insertframenumber /\inserttotalframenumber]{sw605f15, Aalborg University}
+\frame{\maketitle\thispagestyle{empty}}
+
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\input{contents/ProductOwner}			%Introduction + PO by Lukas
+\input{contents/PlayAnalytics}			%Google Play and Google Analytics by Claus
+\input{contents/Build Structure}			%How we changed the build structure by Martin
+\input{contents/StandAlone}				%Standalone by Martin 
+\input{contents/Package}				% package solution + the rest by Sean
+\input{contents/Conclusion}				%Conclusion and reflection by Sean
+
+% Make an empty last page
+\begin{frame}
+\end{frame}
+
+\end{document}

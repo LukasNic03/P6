@@ -1,0 +1,102 @@
+\section{Neural Networks In Pratice}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{IO Encoding and Decoding}
+	\end{center}
+	Binary IO
+
+	Encode : rooms \times time \mapsto input
+	Encode(r, t) = log_{2}(r \ast t)
+
+	Decode : output \mapsto duration
+	Decode(o) = exp_{2}(o)
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Network Size}
+	\end{center}
+	Bounded IO domain, unbounded mapping
+	
+	Find the size of:
+	Input layer : I = Encode( max(rooms), max(t) )
+	Hidden layer : H = good question
+	Output layer : O = Encode( max(duration), 0 )
+	Bias : C = number of layers 
+	
+	$\therefore$ size = I \+ H \+ O \+ C
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Template Metaprogramming}
+	\end{center}
+	Problems:
+	Want to be able to change a single definition of the topology with out the need to recompute array lengths
+	Quickly programming a network allocation method is trivial but invites dynamic containers
+	
+	Solution:
+	C\+\+11 variadic TMP
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Example TMP Implementation and Usage}
+	\end{center}
+	template\<size\_t...\>
+	struct Counter;
+
+	template<size\_t Head, size\_t... Tail>
+	struct Counter\<Head, Tail...\>
+	\{ static const size\_t value = 1 \+ Counter\<Tail...\>::value; \};
+
+	template\<\>
+	struct Counter\<\>
+	\{ static const size\_t value = 0; \};
+	
+	\#define TOPOLOGY 1,2,1
+	const auto entries = Counter\<TOPOLOGY\>::value; // enties = 3
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Network Training}
+	\end{center}
+	Problem:
+	Network is useless (at first)
+	
+	Solution:
+	Train it before deploying
+	
+	"Randomly" pick constants \eta and \alpha
+	do \{ run network with a csv of input-target pairs \}
+	while \( the network error is \> \varepsilon \)
+	save \( weights to file \)
+	hard code initial connection weights
+	
+	Problem: "randomly"
+\end{frame}
+
+\begin{frame}
+	RMSE plot goes here :3c
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Application}
+	\end{center}
+	Activation:
+	store input for reference
+	forward feeding of encoded input
+	retrieved output decoding
+	set light duration to the output
+		
+	Deactivation:
+	retrieve stored input
+	forward feeding of encoded input
+	retrieved output decoding
+	compare output with actual duration
+	if the actual and predicted times differ
+		train the network with the actual duration for the input
+\end{frame}

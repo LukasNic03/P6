@@ -1,0 +1,103 @@
+\subsection{Neural Network Introduction}
+\begin{frame}
+  \begin{center}
+    \frametitle{Neural Network}
+			Regarding the design of an agent for our solution
+  \end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\frametitle{Motivation}
+			\begin{itemize}
+				\item Predictive guesses
+				\item Find patterns
+				\item Adaptable
+			\end{itemize}
+	\end{center}
+\end{frame}
+
+\subsection{Neural network}
+
+\begin{frame}
+	\frametitle{Sub parts}
+	\begin{itemize}
+		\item Activation Function
+		\begin{itemize}
+			\item Hyperbolic tangent
+		\end{itemize}
+		\begin{figure}[H]
+			\centering
+			$tanh(x) = \dfrac{sinh(x)}{cosh(x)}$
+		\end{figure}
+		\item Neurons
+		\begin{itemize}
+			\item Weight Connections
+			\item Bias
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Activation Function}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.8 \textwidth]{pictures/tanh.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Configuration of the network}
+	\begin{itemize}
+		\item Fully-forward connected network
+		\item Layers
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width= 0.4 \textwidth]{pictures/examplenetwork.png}
+			\end{figure}
+	\end{itemize}
+\end{frame}
+
+\subsection{Backpropagation}
+
+\begin{frame}
+	\frametitle{New variables and functions}
+	\begin{itemize}
+		\item Root mean squared error
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		%$\text{RMSE} = \sqrt{\dfrac{(t_1-o_1)^2+(t_2-o_2)^2+...+(t_n-o_n)^2}{n}}$\\
+		$\text{RMSE} = \sqrt{\dfrac{\sum_{i}^{n}[t_i - o_i]^2}{n}}$\\
+		\label{des:neural_RMSE}
+	\end{figure}
+	\begin{itemize}
+		\item Differentiated activation function
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		$tanh(x)\dfrac{d}{dx} = sech^2(x)$
+		\label{des:neural_diff-tanh}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Gradient Error}
+		\begin{figure}[H]
+			\centering
+			$G = E * sech^2(o)$\\
+			\label{des:neural_gradient}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			$G = \sum_{i}^{n}[w_i * G_i]*sech^2(o)$
+		\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Updating the weights}
+		\begin{figure}[H]
+			\centering
+			$\eta * o * G + \alpha * \Delta_{old}$
+		\end{figure}
+\end{frame}
