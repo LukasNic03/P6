@@ -1,0 +1,21 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {english}
+\beamer@sectionintoc {1}{GIRAF}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{GIRAF Overview}{4}{0}{1}
+\beamer@sectionintoc {2}{Product Owner}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{User stories}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Backlog}{11}{0}{2}
+\beamer@sectionintoc {3}{Google Play and Analytics}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Google Play}{12}{0}{3}
+\beamer@subsectionintoc {3}{2}{Google Analytics}{16}{0}{3}
+\beamer@subsectionintoc {3}{3}{Renaming}{18}{0}{3}
+\beamer@sectionintoc {4}{Build Structure}{20}{0}{4}
+\beamer@subsectionintoc {4}{1}{Dependencies}{20}{0}{4}
+\beamer@subsectionintoc {4}{2}{Solution}{24}{0}{4}
+\beamer@subsectionintoc {4}{3}{Change}{27}{0}{4}
+\beamer@sectionintoc {5}{StandAlone}{30}{0}{5}
+\beamer@subsectionintoc {5}{1}{Package solution}{33}{0}{5}
+\beamer@sectionintoc {6}{Conclusion}{38}{0}{6}
+\beamer@subsectionintoc {6}{1}{Conclusion}{38}{0}{6}
+\beamer@sectionintoc {7}{Recommendation and reflexion}{43}{0}{7}
+\beamer@subsectionintoc {7}{1}{Recommendation and reflexion}{43}{0}{7}
