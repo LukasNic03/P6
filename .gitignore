@@ -10,3 +10,11 @@ paper/master.bbl
 *.aux
 *.bib.bak
 *.log
+Presentation/Presentation.toc
+Presentation/Presentation.synctex.gz
+Presentation/Presentation.log
+Presentation/Presentation.out
+Presentation/Presentation.blg
+Presentation/Presentation.aux
+Presentation/Presentation.bbl
+Presentation/Presentation.snm
