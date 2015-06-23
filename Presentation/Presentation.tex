@@ -5,6 +5,7 @@
 \usepackage[english]{babel}
 \usepackage{enumerate}
 \usepackage{lmodern}
+\usepackage{multicol}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -30,7 +31,9 @@
 
 \begin{frame}
   \frametitle{Contents}
-  \tableofcontents
+  \begin{multicols}{2}
+  	\tableofcontents
+  \end{multicols}
 \end{frame}
 
 \input{contents/ProductOwner}			%Introduction + PO by Lukas
